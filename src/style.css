@@ -1,0 +1,106 @@
+body {
+    font-family: open-sans, sans-serif;
+}
+
+
+@media screen and (max-width: 480px) {
+
+
+    .container {
+        position: relative;
+        width: 100%;
+        min-height: 100vh;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .top-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45vh;
+        background-image: url("../images/unnamed.png");
+        /* pesquisei */
+        background-repeat: no-repeat;
+        /* pesquisei */
+        background-size: 100% 100%;
+        /* pesquisei */
+        background-position: top center;
+        /* pesquisei */
+        z-index: 0;
+        /* pesquisei */
+    }
+
+    .topo,
+    .avatar,
+    .login-titulo,
+    .login1 {
+        position: relative;
+    }
+
+    .topo {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        align-items: center;
+        margin-top: 40px;
+    }
+
+    .logo img,
+    .logo-trem img {
+        height: 50px;
+    }
+
+    .avatar {
+        margin: 30px 0 10px 0;
+    }
+
+    .avatar img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 10px;
+        margin-top: 150px;
+        background-color: black;
+    }
+
+    .login-titulo {
+        margin-bottom: 10px;
+        color: black;
+        font-weight: 700;
+        margin-top: 50px;
+    }
+
+    .login1 {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .login1 input {
+        padding: 10px;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .login1 button {
+        padding: 12px;
+        background-color: #0046d8;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .login1 button a {
+        color: white;
+        text-decoration: none;
+    }
+}

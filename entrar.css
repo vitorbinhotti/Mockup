@@ -1,0 +1,145 @@
+@media screen and (max-width: 480px) {
+    body {
+        margin: 0;
+        font-family: 'Open Sans', sans-serif;
+        background-color: #ffffff;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 70px;
+    }
+
+    .topo {
+        width: 100%;
+        height: 50px;
+        background-color: #3e48cc;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .topo img {
+        height: 40px;
+    }
+
+    .bem-vindo {
+        font-size: 20px;
+        margin: 20px 0 10px 0;
+        font-weight: 700;
+    }
+
+    .botoes {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .botao {
+        position: relative;
+        background-color: #f2f2f2;
+        width: 130px;
+        height: 110px;
+        border-radius: 10px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .botao img {
+        height: 40px;
+        margin-bottom: 5px;
+        margin-top: 15px;
+    }
+
+    .botao h3 {
+        font-size: 14px;
+        margin: 0;
+        color: black;
+        margin-top: 10px;
+    }
+
+
+    .menu-rodape {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background-color: #3e48cc;
+        display: flex;
+        justify-content: space-around;
+        padding: 10px 0;
+    }
+
+    .item-menu {
+        text-align: center;
+        color: white;
+
+    }
+
+    .item-menu img {
+        height: 22px;
+        margin-bottom: 3px;
+    }
+
+    .item-menu p {
+        margin: 0;
+        font-size: 12px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    header {
+        background-color: rgb(21, 4, 98);
+        padding: 10px;
+    }
+
+    .btn-abrir {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: blue;
+        font-size: 20px;
+        background-color: rgb(255, 255, 255);
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+    }
+
+    nav {
+        height: 100%;
+        width: 250px;
+        background-color: white;
+        position: fixed;
+        top: 0;
+        left: -250px;
+        z-index: 1;
+        overflow: hidden;
+        transition: left 0.3s ease-in-out;
+    }
+
+    nav a {
+        color: black;
+        font-size: 17px;
+        display: block;
+        padding: 12px 10px 12px 32px;
+    }
+
+    nav a:hover {
+        color: blue; 
+    }
+    
+    main {
+        padding: 10px;
+        transition: margin-left 0.5s;
+    }
+
+    nav.ativo {
+        left: 0;
+    }
+}
