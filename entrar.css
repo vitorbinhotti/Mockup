@@ -14,7 +14,7 @@
 
     .topo {
         width: 100%;
-        height: 50px;
+        height: 70px;
         background-color: #3e48cc;
         display: flex;
         align-items: center;
@@ -24,7 +24,7 @@
     }
 
     .topo img {
-        height: 40px;
+        height: 50px;
     }
 
     .bem-vindo {
@@ -67,27 +67,32 @@
     .menu-rodape {
         position: fixed;
         bottom: 0;
+        height: 45px;
         width: 100%;
         background-color: #3e48cc;
         display: flex;
         justify-content: space-around;
-        padding: 10px 0;
+        padding: 8px 0;
+    }
+
+    .menu-rodape img p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .item-menu {
         text-align: center;
         color: white;
-
     }
 
     .item-menu img {
-        height: 22px;
-        margin-bottom: 3px;
+        height: 30px;
     }
 
     .item-menu p {
         margin: 0;
-        font-size: 12px;
+        font-size: 15px;
     }
 
     a {
@@ -112,6 +117,21 @@
         border-radius: 100%;
     }
 
+
+    .icon-menu-lateral a{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    hr {
+        border: 2px solid rgb(87, 87, 87);
+    }
+
+    .icone-fechar a {
+        margin-top: 5px;
+    }
+
     nav {
         height: 100%;
         width: 250px;
@@ -132,9 +152,9 @@
     }
 
     nav a:hover {
-        color: blue; 
+        color: blue;
     }
-    
+
     main {
         padding: 10px;
         transition: margin-left 0.5s;
