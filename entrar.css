@@ -221,4 +221,27 @@
         width: 400px;
         height: 300px;
     }
+
+    .rotas h1 img{
+        margin-bottom: 10px;
+    }
+
+    .rotas h1{
+        display: flex;
+        align-items: center;
+        border-bottom: #3e48cc solid;
+    }
+
+    .rotas h1{
+        font-size: 22px;
+        color: #3e48cc;
+        font-weight: bold;
+    }
+
+    .rotas img {
+        height: 42px;
+        margin-left: 5px;
+        margin-right: 10px;
+        width: 42px;
+    }
 }
