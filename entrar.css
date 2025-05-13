@@ -181,7 +181,7 @@
         border-bottom: 2px solid #ccc;
         margin: 10px 0;
     }
-    
+
     .aba {
         background: none;
         border: none;
@@ -193,12 +193,12 @@
         border-bottom: 3px solid transparent;
         transition: all 0.3s ease;
     }
-    
+
     .aba.ativa {
         color: #3e48cc;
         border-bottom: 3px solid #3e48cc;
     }
-    
+
     .conteudo-aba {
         padding: 15px;
         background-color: #ccc;
@@ -222,17 +222,17 @@
         height: 300px;
     }
 
-    .rotas h1 img{
+    .rotas h1 img {
         margin-bottom: 10px;
     }
 
-    .rotas h1{
+    .rotas h1 {
         display: flex;
         align-items: center;
         border-bottom: #3e48cc solid;
     }
 
-    .rotas h1{
+    .rotas h1 {
         font-size: 22px;
         color: #3e48cc;
         font-weight: bold;
@@ -243,5 +243,30 @@
         margin-left: 5px;
         margin-right: 10px;
         width: 42px;
+    }
+
+    .ferrovia {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 150px;
+    }
+
+    .container-azul {
+        width: 423px;
+        height: 500px;
+        background-color: #3e48cc;
+    }
+
+    .container-azul p {
+        color: white;
+        font-weight: bold;
+    }
+
+    
+    .container-azul img {
+        background-color: white;
+        border-radius: 50%;
+        border: 2px solid white;
     }
 }
