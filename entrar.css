@@ -205,4 +205,20 @@
         border-radius: 10px;
         margin: 8px;
     }
+
+    .imagem-relatorio {
+        display: flex;
+        margin: 0 auto;
+        margin-top: 30px;
+        border: 3px solid black;
+        width: 300px;
+        height: 300px;
+    }
+
+    .grafico {
+        display: flex;
+        margin: 0 auto;
+        width: 400px;
+        height: 300px;
+    }
 }
