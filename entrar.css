@@ -249,7 +249,7 @@
         display: flex;
         justify-content: center;
         margin: 0 auto;
-        margin-top: 150px;
+        margin-top: 100px;
     }
 
     .container-azul {
@@ -263,10 +263,19 @@
         font-weight: bold;
     }
 
-    
-    .container-azul img {
+    .placa-stop img {
         background-color: white;
+        height: 45px;
         border-radius: 50%;
+        margin-left: 10px;
+        margin-top: 10px;
         border: 2px solid white;
+        padding: 0;
+    }
+
+    .container-azul p  {
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 }
