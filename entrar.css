@@ -38,6 +38,7 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 15px;
+        padding-top: 100px;
     }
 
     .botao {
