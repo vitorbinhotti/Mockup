@@ -13,14 +13,25 @@
         <img class="logo"
             src="images/[ SA Parte I ] Smart Cities e a Transformação Digital no Transporte - Mateus Cesar, Vitor Binhotti, Felipe Pivatto e Eduardo Felipe (1080 x 1500 px).png"
             alt="Logo Stop and GO">
+
+
         <img class="logo-trem" src="images/images-removebg-preview.png" alt="Ícone Trem">
     </header>
 
-    <img class="imagem-relatorio" src="images/relatorio-analises.png" alt="Relatorios e Analises">
+    <div class="tab-relatorio">
+        <button onclick="mostrarAba('problemas')" class="aba ativa"> Problemas</button>
+        <button onclick="mostrarAba('gastos')" class="aba">Gastos</button>
+    </div>
 
-    <hr>
+    <div id="problemas" class="conteudo-aba-relatorio">
+        <h2 class="txt-relatorio1">Problemas reportados hoje</h2>
+        <img class="imagem-relatorio" src="images/relatorio-analises.png" alt="">
+    </div>
 
-    <img class="grafico" src="images/grafico.png" alt="">
+    <div id="gastos" class="conteudo-aba-relatorio" style="display: none;">
+        <h2 class="txt-relatorio2">Distribuição de Gastos</h2>
+        <img class="grafico" src="images/grafico.png" alt="">
+    </div>
 
 
     <nav class="icon-menu-lateral">
