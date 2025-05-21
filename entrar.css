@@ -67,7 +67,7 @@
     .menu-rodape {
         position: fixed;
         bottom: 0;
-        height: 45px;
+        height: 55px;
         width: 100%;
         background-color: #3e48cc;
         display: flex;
@@ -245,6 +245,14 @@
         width: 42px;
     }
 
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        height: 100%;
+    }
+
     .ferrovia {
         display: flex;
         justify-content: center;
@@ -253,9 +261,29 @@
     }
 
     .container-azul {
-        width: 423px;
-        height: 500px;
+        width: 426px;
+        height: 300px;
         background-color: #3e48cc;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .container-azul>div {
+        vertical-align: top;
+        margin-right: 15px;
+    }
+
+    .container-azul::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .container-azul::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    .container-azul::-webkit-scrollbar-track {
+        background: transparent;
     }
 
     .container-azul p {
@@ -273,9 +301,114 @@
         padding: 0;
     }
 
-    .container-azul p  {
+    .container-azul p {
         display: flex;
         align-items: center;
         gap: 5px;
     }
+
+    .exclamação img {
+        display: flex;
+        align-items: center;
+        height: 45px;
+        margin-left: 10px;
+        padding: 0;
+    }
+
+    .btn-sair {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 200px;
+    }
+
+    .btn-sair a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background-color: #3e48cc;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-sair a:hover {
+        background-color: #2d36b0;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-sair img {
+        width: 20px;
+        height: 20px;
+        filter: brightness(0) invert(1);
+    }
+
+    .notificacoes {
+        align-content: space-around;
+        align-items: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 40px;
+    }
+
+    .com-noti {
+        display: flex;
+        background-color: #b8b8b8;
+        border-radius: 8px;
+        margin-top: 20px;
+        align-items: center;
+        border-radius: 20px;
+    }
+
+    .sem-noti {
+        display: flex;
+        background-color: #e9e9e9;
+        border-radius: 20px;
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    .img-alertas-noti {
+        max-width: 50px;
+        max-height: 50px;
+        height: auto;
+        width: auto;
+    }
+
+    .img-alertas {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btn-alertas {
+        display: flex;
+        margin-left: 30px;
+        justify-content: center;
+        height: 40px;
+        width: 350px;
+        align-items: center;
+        gap: 5px;
+        font-size: 18px;
+        font-weight: bold;
+        background-color: #a4a0a0;
+        display: flex;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+
+    .btn-alertas img {
+        height: 24px;
+        width: 24px;
+    }
+
 }
