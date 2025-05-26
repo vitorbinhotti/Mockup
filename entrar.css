@@ -459,4 +459,36 @@
         font-size: 7px;
         border: 2px solid rgb(37, 37, 37);
     }
+
+    .date-wrapper {
+        display: flex;
+        align-items: center;
+        background-color: #d3d3d3;
+        border: 2px solid #888;
+        border-radius: 25px;
+        padding: 5px 10px;
+        max-width: 170px;
+        gap: 8px;
+        
+    }
+    
+    .calendar-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .date-wrapper input[type="date"] {
+        border: none;
+        background: transparent;
+        font-size: 16px;
+        outline: none;
+        flex: 1;
+        cursor: pointer;
+    }
+    
+    .date-wrapper input[type="date"]::-webkit-inner-spin-button,
+    .date-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
+        margin-left: 5px;
+        cursor: pointer;
+    }
 }
