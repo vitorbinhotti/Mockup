@@ -263,6 +263,7 @@
     .container-azul {
         width: 426px;
         height: 300px;
+        height: 400px;
         background-color: #3e48cc;
         overflow-y: auto;
         overflow-x: hidden;
@@ -346,7 +347,7 @@
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
-    
+
     .btn-sair img {
         width: 20px;
         height: 20px;
@@ -358,7 +359,6 @@
         align-items: center;
         margin-left: 20px;
         margin-right: 20px;
-        margin-top: 40px;
     }
 
     .com-noti {
