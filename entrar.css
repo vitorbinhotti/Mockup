@@ -446,7 +446,6 @@
     .informacao3 {
         color: rgb(138, 138, 138);
         margin-top: 30px;
-        font-size: 6px;
         padding: 5%;
     }
 
@@ -456,39 +455,120 @@
         margin: 1%;
         padding: 5%;
         border-radius: 10px;
-        font-size: 7px;
         border: 2px solid rgb(37, 37, 37);
-    }
-
-    .date-wrapper {
         display: flex;
         align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+
+    .date-wrapper {
         background-color: #d3d3d3;
         border: 2px solid #888;
         border-radius: 25px;
-        padding: 5px 10px;
-        max-width: 170px;
-        gap: 8px;
-        
+        padding: 5px 15px;
+        display: inline-flex;
+        align-items: center;
     }
-    
-    .calendar-icon {
-        width: 24px;
-        height: 24px;
-    }
-    
+
+
     .date-wrapper input[type="date"] {
         border: none;
         background: transparent;
         font-size: 16px;
-        outline: none;
-        flex: 1;
         cursor: pointer;
     }
-    
+
     .date-wrapper input[type="date"]::-webkit-inner-spin-button,
     .date-wrapper input[type="date"]::-webkit-calendar-picker-indicator {
         margin-left: 5px;
         cursor: pointer;
     }
+
+    .estacao h1 {
+        font-size: 18px;
+        color: #333;
+        margin: 0;
+        white-space: nowrap;
+    }
+
+    .select {
+        background-color: #d3d3d3;
+        border: 2px solid #888;
+        border-radius: 25px;
+        padding: 5px 15px;
+        font-size: 16px;
+        cursor: pointer;
+        min-width: 160px;
+    }
+
+    .fundo1 {
+        background-color: #a5a5a5;
+        color: #e5e5e5;
+        width: 400px;
+        height: 40px;
+        margin: auto;
+        font-size: 7px;
+    }
+
+    .fundo2 {
+        background-color: #949393;
+        color: #e5e5e5;
+        width: 400px;
+        height: 40px;
+        margin: auto;
+        font-size: 7px;
+    }
+
+    .horarios-container {
+        width: 100%;
+        max-height: 60vh;
+        overflow-y: auto;
+        margin-top: 15px;
+        padding-right: 5px;
+    }
+
+    .data-horario {
+        font-size: 18px;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .fundo1,
+    .fundo2 {
+        width: 95%;
+        margin: 8px auto;
+        padding: 12px;
+        border-radius: 8px;
+        font-size: 16px !important;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    .horarios-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .horarios-container::-webkit-scrollbar-thumb {
+        background-color: #888;
+        border-radius: 4px;
+    }
+
+
+    .horarios-container::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+    }
+
+    .fundo1 {
+        background-color: #a5a5a5;
+    }
+
+    .fundo2 {
+        background-color: #949393;
+    }
+
 }

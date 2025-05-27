@@ -52,7 +52,7 @@ body {
 
     .logo img,
     .logo-trem img {
-        height: 50px;
+        height: 60px;
     }
 
     .avatar {
@@ -60,8 +60,8 @@ body {
     }
 
     .avatar img {
-        width: 100px;
-        height: 100px;
+        width: 150px;
+        height: 150px;
         border-radius: 50%;
         box-shadow: 0 0 10px;
         margin-top: 150px;
@@ -84,11 +84,16 @@ body {
     }
 
     .login1 input {
-        padding: 10px;
-        border: none;
-        border-radius: 10px;
-        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 2px solid #3e48cc;
+        border-radius: 25px;
+        font-size: 16px;
+        font-weight: bold;
     }
+
+    
 
     .login1 button {
         padding: 12px;
@@ -103,4 +108,26 @@ body {
         color: white;
         text-decoration: none;
     }
+
+    #nomeUsuario {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 2px solid #3e48cc;
+        border-radius: 25px;
+        font-size: 16px;
+    }
+    
+    .bem-vindo {
+        text-align: center;
+        margin: 20px 0;
+        font-size: 1.5em;
+        color: #3e48cc;
+    }
+    
+    #nomeUsuario {
+        font-weight: 600;
+        color: #2d36b0;
+    }
+
 }
