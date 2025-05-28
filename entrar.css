@@ -28,17 +28,10 @@
     }
 
     .bem-vindo {
-<<<<<<< HEAD
-        font-size: 120%;
-        margin: 5% 0 2.5% 0;
-        font-weight: bold;
-    }
-=======
         font-size: 20px;
         margin: 20px 0 10px 0;
         font-weight: 700;
     }                                                                                                                                                                                                                                                                                                                                
->>>>>>> 8bd8f64278d7d1c9cfdf2fbdefe898d91f4ab161
 
     .botoes {
         display: flex;
@@ -363,13 +356,8 @@
     .notificacoes {
         align-content: space-around;
         align-items: center;
-<<<<<<< HEAD
-        margin-left: 5%;
-        margin-right: 5%;
-=======
         margin-left:5%;
         margin-right:5%;
->>>>>>> 8bd8f64278d7d1c9cfdf2fbdefe898d91f4ab161
     }
 
     .com-noti {
@@ -406,11 +394,7 @@
         margin-left: auto;
         margin-right: auto;
         justify-content: center;
-<<<<<<< HEAD
-        height: 40px;
-=======
         height: 25%;
->>>>>>> 8bd8f64278d7d1c9cfdf2fbdefe898d91f4ab161
         width: 80%;
         align-items: center;
         gap: 5%;
@@ -419,19 +403,11 @@
         background-color: #a4a0a0;
         display: flex;
         border-radius: 20px;
-<<<<<<< HEAD
-        margin-top: 20px;
-
-    }
-
-    .btn-alertas img {
-=======
         margin-top: 4%;
     }
 
     .btn-alertas img {
         height: 8%;
->>>>>>> 8bd8f64278d7d1c9cfdf2fbdefe898d91f4ab161
         width: 8%;
     }
 
@@ -591,5 +567,4 @@
     .fundo2 {
         background-color: #949393;
     }
-
 }
