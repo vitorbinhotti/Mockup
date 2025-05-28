@@ -125,7 +125,7 @@
         font-size: 120%;
         background-color: rgb(255, 255, 255);
         width: 6.5%;
-        height: 36%;
+        height: 6.5%;
         border-radius: 100%;
     }
 
@@ -566,5 +566,28 @@
 
     .fundo2 {
         background-color: #949393;
+    }
+
+    .notificacoes {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .notificacoes>div {
+        vertical-align: top;
+        margin-right: 5%;
+    }
+
+    .notificacoes::-webkit-scrollbar {
+        width: 2%;
+    }
+
+    .notificacoes::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    .notificacoes::-webkit-scrollbar-track {
+        background: transparent;
     }
 }
