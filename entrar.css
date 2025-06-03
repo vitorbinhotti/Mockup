@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 480px) {More actions
     body {
         margin: 0;
         font-family: 'Open Sans', sans-serif;
@@ -125,6 +125,7 @@
         font-size: 120%;
         background-color: rgb(255, 255, 255);
         width: 6.5%;
+        height: 6.5%;
         height: 30%;
         border-radius: 100%;
     }
@@ -348,8 +349,8 @@
     }
 
     .btn-sair img {
-        width: 12%;
-        height: 12%;
+        width: 20%;
+        height: 20%;
         filter: brightness(0) invert(1);
     }
 
@@ -569,36 +570,25 @@
     }
 
     .notificacoes {
-        display: flex;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 15px;
-        padding: 10px 5%;
-        margin-left: auto;
-        margin-right: auto;;
-        scrollbar-width: thin;
-        scrollbar-color: #3e48cc #f1f1f1;
-    }
-    
-    .notificacoes::-webkit-scrollbar {
-        height: 5%;
-    }
-    
-    .notificacoes::-webkit-scrollbar-thumb {
-        background-color: #3e48cc;
-        border-radius: 10px;
-    }
-    
-    .notificacoes::-webkit-scrollbar-track {
-        background: #f1f1f1;
-    }
-    
-    .com-noti, .sem-noti {
-        margin-left: auto;
-        margin-right: auto;
-        width: 80%;
-        margin-top: 0;
-        white-space: normal;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 
+    .notificacoes>div {
+        vertical-align: top;
+        margin-right: 5%;
+    }
+
+    .notificacoes::-webkit-scrollbar {
+        width: 2%;
+    }
+
+    .notificacoes::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.5);
+        border-radius: 10px;
+    }
+
+    .notificacoes::-webkit-scrollbar-track {
+        background: transparent;
+    }
 }
