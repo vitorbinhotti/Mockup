@@ -1,3 +1,7 @@
+body {
+    font-family: open-sans, sans-serif;
+}
+
 @media screen and (max-width: 480px) {More actions
     body {
         margin: 0;
