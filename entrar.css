@@ -407,7 +407,7 @@ body {
         background-color: #a4a0a0;
         display: flex;
         border-radius: 20px;
-        margin-top: 4%;
+        margin-top: 10%;
     }
 
     .btn-alertas img {
@@ -573,25 +573,50 @@ body {
     }
 
     .notificacoes {
+        height: 60vh; /* 60% da altura da viewport */
         overflow-y: auto;
         overflow-x: hidden;
+        margin: 2% 5%;
+        padding: 0 2%;
     }
-
-    .notificacoes>div {
-        vertical-align: top;
-        margin-right: 5%;
+    
+    .notificacoes > div {
+        margin-bottom: 15px; 
+        padding: 12px 15px; 
     }
-
+    
+    .com-noti, .sem-noti {
+       gap: 3%;
+    }
+    
+    .com-noti {
+        background-color: #b8b8b8;
+    }
+    
+    .sem-noti {
+        background-color: #e9e9e9;
+    }
+    
     .notificacoes::-webkit-scrollbar {
-        width: 2%;
+        width: 8px;
     }
-
+    
     .notificacoes::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.5);
+        background-color: #3e48cc;
         border-radius: 10px;
     }
-
+    
     .notificacoes::-webkit-scrollbar-track {
-        background: transparent;
+        background: #f1f1f1;
+        border-radius: 10px;
+    }
+    
+    .buttons-container {
+        position: fixed;
+        bottom: 70px; 
+        width: 100%;
+        padding: 10px 0;
+        background: rgb(255, 0, 0);
+        z-index: 10;
     }
 }
