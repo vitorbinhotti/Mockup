@@ -131,6 +131,38 @@ document.addEventListener('DOMContentLoaded', function () {
     return container;
   }
 
+  document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const nomeInput = document.getElementById('nomeUsuario');
+    const nome = nomeInput.value.trim();
+
+    if (nome) {
+      localStorage.setItem('nomeUsuario', nome);
+      window.location.href = 'entrar.html';
+    } else {
+      alert('Por favor, insira seu nome!');
+    }
+  });
+
+  document.getElementById("loginForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const senha = document.getElementById("senha").value;
+    const mensagem = document.getElementById("mensagemSenha");
+
+    const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+
+    if (!senhaForte.test(senha)) {
+      mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
+    } else {
+      mensagem.style.color = "green";
+      mensagem.textContent = "Senha forte!";
+
+
+    }
+  });
+
   function atualizarHorarios() {
     const estacaoId = selectEstacao.value;
     const estacao = horariosEstacoes[estacaoId];
@@ -148,21 +180,21 @@ document.addEventListener('DOMContentLoaded', function () {
   atualizarHorarios();
 });
 
-document.getElementById('uploadFotoPerfil').addEventListener('change', function(e) {
+document.getElementById('uploadFotoPerfil').addEventListener('change', function (e) {
   const file = e.target.files[0];
   if (file && file.type.startsWith('image/')) {
-      const reader = new FileReader();
-      
-      reader.onload = function(e) {
-          const img = document.getElementById('fotoPerfil');
-          img.src = e.target.result;
-          
-          img.onload = function() {
-              URL.revokeObjectURL(img.src);
-          }
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const img = document.getElementById('fotoPerfil');
+      img.src = e.target.result;
+
+      img.onload = function () {
+        URL.revokeObjectURL(img.src);
       }
-      
-      reader.readAsDataURL(file);
+    }
+
+    reader.readAsDataURL(file);
   }
 });
 

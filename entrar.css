@@ -402,12 +402,12 @@ body {
         width: 80%;
         align-items: center;
         gap: 5%;
-        padding: 3%;
+        padding: 2%;
         font-size: 120%;
         font-weight: bold;
         background-color: #a4a0a0 !important; 
         border-radius: 20px;
-        margin-top: 10%;
+        margin-top: 5%;
         border: none;
         color: #000; 
     }
