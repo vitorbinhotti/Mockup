@@ -131,19 +131,7 @@ document.addEventListener('DOMContentLoaded', function () {
     return container;
   }
 
-  document.getElementById('loginForm').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    const nomeInput = document.getElementById('nomeUsuario');
-    const nome = nomeInput.value.trim();
-
-    if (nome) {
-      localStorage.setItem('nomeUsuario', nome);
-      window.location.href = 'entrar.html';
-    } else {
-      alert('Por favor, insira seu nome!');
-    }
-  });
 
   document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
@@ -158,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       mensagem.style.color = "green";
       mensagem.textContent = "Senha forte!";
-
+      windows.location.href = " entrar.html";
 
     }
   });
