@@ -94,7 +94,7 @@ body {
         font-weight: bold;
     }
 
-    
+
 
     .login1 button {
         padding: 4%;
@@ -117,18 +117,40 @@ body {
         margin-bottom: 5%;
         border: 2px solid #3e48cc;
         border-radius: 25px;
+        font-weight: 600;
+        color: #2d36b0;
     }
-    
+
     .bem-vindo {
         text-align: center;
         margin: 20px 0;
         font-size: 1.5em;
         color: #3e48cc;
     }
-    
-    #nomeUsuario {
-        font-weight: 600;
-        color: #2d36b0;
+
+    .cont_senha {
+        position: relative;
+        width: 100%;
     }
 
+    .cont_senha input {
+        width: 100%;
+        padding: 3.5%;
+        padding-right: 40px;
+        border: 2px solid #3e48cc;
+        border-radius: 25px;
+        font-weight: 600;
+        color: #2d36b0;
+        display: flex;
+    }
+
+    .cont_senha .toggle-senha {
+        position: absolute;
+        right: 15px;
+        top: 40%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #3e48cc;
+        font-size: 1.2rem;
+    }
 }

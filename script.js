@@ -130,25 +130,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return container;
   }
-
-
-
   document.getElementById("loginForm").addEventListener("submit", function (e) {
     e.preventDefault();
 
+    const nome = document.getElementById("nomeUsuario").value.trim();
     const senha = document.getElementById("senha").value;
     const mensagem = document.getElementById("mensagemSenha");
 
     const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
 
-    if (!senhaForte.test(senha)) {
-      mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
-    } else {
-      mensagem.style.color = "green";
-      mensagem.textContent = "Senha forte!";
-      windows.location.href = " entrar.html";
-
+    if (nome.length < 3 || !nome.includes(" ")) {
+      mensagem.style.color = "red";
+      mensagem.textContent = "Por favor, insira seu nome completo (nome e sobrenome).";
+      return;
     }
+
+    if (!senhaForte.test(senha)) {
+      mensagem.style.color = "red";
+      mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
+      return;
+    }
+
+    localStorage.setItem('nomeUsuario', nome);
+
+    mensagem.style.color = "green";
+    mensagem.textContent = "Login bem-sucedido!";
+
+    window.location.href = "entrar.html";
   });
 
   function atualizarHorarios() {
@@ -166,6 +174,13 @@ document.addEventListener('DOMContentLoaded', function () {
   dateInput.addEventListener('change', atualizarHorarios);
 
   atualizarHorarios();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const nomeArmazenado = localStorage.getItem('nomeUsuario');
+  if (nomeArmazenado) {
+    document.getElementById('nomeUsuario').textContent = nomeArmazenado;
+  }
 });
 
 document.getElementById('uploadFotoPerfil').addEventListener('change', function (e) {
@@ -189,4 +204,17 @@ document.getElementById('uploadFotoPerfil').addEventListener('change', function 
 function fazerLogout() {
   localStorage.removeItem('nomeUsuario');
   window.location.href = 'login.html';
+}
+
+function mostrarSenha() {
+  var inputPass = document.getElementById('senha');
+  var btnShowPass = document.getElementById('btn-senha');
+
+  if(inputPass.type === 'password') {
+    inputPass.setAttribute('type', 'text')
+    btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash')
+  } else {
+    inputPass.setAttribute('type','password')
+    btnShowPass.classList.replace('bi-eye-slash', 'bi-eye-fill')
+  }
 }

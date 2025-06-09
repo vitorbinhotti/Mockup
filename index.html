@@ -10,6 +10,7 @@
   <link rel="shortcut icon" type="image/ico" href="images/avatar-icon-2048x2048-ilrgk6vk.png">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <title>Login</title>
 </head>
 
@@ -37,10 +38,12 @@
     <form class="login1" id="loginForm">
       <input type="text" id="nomeUsuario" placeholder="Insira seu nome completo">
 
-      <input type="password" id="senha" placeholder="Insira sua senha">
-      <span id="mensagemSenha" style="color: red; font-size: 14px;"></span>
+      <div class="cont_senha">
+        <input type="password" id="senha" placeholder="Insira sua senha">
+        <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
+      </div>
 
-      <br>
+      <span id="mensagemSenha" style="color: red; font-size: 14px;"></span <br>
       <button type="submit">Entrar</button>
     </form>
   </div>

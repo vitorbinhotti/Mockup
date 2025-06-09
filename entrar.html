@@ -60,6 +60,8 @@
     <div class="container">
         <h1 class="bem-vindo">Bem-vindo, <span id="nomeUsuario"></span>!</h1>
 
+        <h2 id="nomeUsuarioExibicao"></h2>
+
         <div class="botoes">
             <div class="botao">
                 <a href="alertas.html">
@@ -111,14 +113,6 @@
             </div>
         </footer>
     </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const nomeArmazenado = localStorage.getItem('nomeUsuario');
-            if (nomeArmazenado) {
-                document.getElementById('nomeUsuario').textContent = nomeArmazenado;
-            }
-        });
-    </script>
 </body>
 
 </html>
