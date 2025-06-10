@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,6 @@
     <link rel="shortcut icon" type="image/ico" href="images/calendar.png">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="script.js"></script>
     <title>Quadro de Horários</title>
 </head>
 
@@ -54,22 +53,25 @@
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
-
     </nav>
 
     <div class="informacao3">
         <div class="numero">
-
             <div class="date-wrapper">
-                <input type="date" id="birthday" name="birthday">
+                <input type="date" id="datePicker" name="datePicker">
             </div>
-
-            <select class="select">
+    
+            <select class="select" id="stationSelect">
+                <option value="" selected disabled>Selecione uma estação</option>
                 <option value="1">Estação A</option>
                 <option value="2">Estação B</option>
                 <option value="3">Estação C</option>
             </select>
         </div>
+        <div id="horariosContainer"></div>
+    </div>
+        
+        <div id="horariosContainer" class="horarios-wrapper"></div>
     </div>
 
     <footer class="menu-rodape">
@@ -86,6 +88,8 @@
             </a>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

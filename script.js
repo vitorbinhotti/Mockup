@@ -1,65 +1,27 @@
 function abrirMenu() {
-  document.querySelector("nav").classList.add("ativo");
+  const nav = document.querySelector("nav");
+  if (nav) nav.classList.add("ativo");
 }
 
 function fecharMenu() {
-  document.querySelector("nav").classList.remove("ativo");
+  const nav = document.querySelector("nav");
+  if (nav) nav.classList.remove("ativo");
 }
 
 function mostrarAba(abaId) {
   const abas = document.querySelectorAll('.conteudo-aba');
   abas.forEach(div => div.style.display = 'none');
 
-
   const botoes = document.querySelectorAll('.aba');
   botoes.forEach(botao => botao.classList.remove('ativa'));
 
+  const aba = document.getElementById(abaId);
+  if (aba) aba.style.display = 'block';
 
-  document.getElementById(abaId).style.display = 'block';
-
-
-  event.target.classList.add('ativa');
+  if (event && event.target) {
+    event.target.classList.add('ativa');
+  }
 }
-
-
-document.addEventListener('DOMContentLoaded', function () {
-  const btnMarcarComoLido = document.querySelectorAll('.btn-alertas')[0];
-  const btnDesativarNotificacoes = document.querySelectorAll('.btn-alertas')[1];
-  let notificacoesAtivas = true;
-
-  btnMarcarComoLido.addEventListener('click', function () {
-    const notificacoesImportantes = document.querySelectorAll('.com-noti');
-    notificacoesImportantes.forEach(function (noti) {
-      noti.classList.remove('com-noti');
-      noti.classList.add('sem-noti');
-
-      const img = noti.querySelector('img');
-      if (img) {
-        img.src = 'images/sino-sem-not.png';
-        img.classList.remove('img-alertas-noti');
-        img.classList.add('img-alertas');
-      }
-    });
-  });
-
-  btnDesativarNotificacoes.addEventListener('click', function () {
-    const todasNotificacoes = document.querySelectorAll('.notificacoes > div');
-
-    if (notificacoesAtivas) {
-      todasNotificacoes.forEach(noti => {
-        noti.style.display = 'none';
-      });
-      btnDesativarNotificacoes.innerHTML = 'Ativar notificações <img src="images/sino-sem-not.png">';
-    } else {
-      todasNotificacoes.forEach(noti => {
-        noti.style.display = 'flex';
-      });
-      btnDesativarNotificacoes.innerHTML = 'Desativar notificações <img src="images/desativar-noti.png">';
-    }
-
-    notificacoesAtivas = !notificacoesAtivas;
-  });
-});
 
 function mostrarAbaRelatorio(abaId, botaoClicado) {
   const abas = document.querySelectorAll('.conteudo-aba-relatorio');
@@ -68,11 +30,118 @@ function mostrarAbaRelatorio(abaId, botaoClicado) {
   const botoes = document.querySelectorAll('.tab-relatorio .aba');
   botoes.forEach(botao => botao.classList.remove('ativa'));
 
-  document.getElementById(abaId).style.display = 'block';
-  botaoClicado.classList.add('ativa');
+  const aba = document.getElementById(abaId);
+  if (aba) aba.style.display = 'block';
+  
+  if (botaoClicado) botaoClicado.classList.add('ativa');
+}
+
+function mostrarSenha() {
+  const inputPass = document.getElementById('senha');
+  const btnShowPass = document.getElementById('btn-senha');
+
+  if (inputPass && btnShowPass) {
+    if (inputPass.type === 'password') {
+      inputPass.setAttribute('type', 'text');
+      btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash');
+    } else {
+      inputPass.setAttribute('type', 'password');
+      btnShowPass.classList.replace('bi-eye-slash', 'bi-eye-fill');
+    }
+  }
+}
+
+function fazerLogout() {
+  localStorage.removeItem('nomeUsuario');
+  window.location.href = 'login.html';
 }
 
 document.addEventListener('DOMContentLoaded', function () {
+  const nomeArmazenado = localStorage.getItem('nomeUsuario');
+  const nomeUsuarioElement = document.getElementById('nomeUsuario');
+  if (nomeUsuarioElement && nomeArmazenado) {
+    nomeUsuarioElement.textContent = nomeArmazenado;
+  }
+
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nomeUsuario")?.value.trim();
+      const senha = document.getElementById("senha")?.value;
+      const mensagem = document.getElementById("mensagemSenha");
+
+      const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
+
+      if (!nome || nome.length < 3 || !nome.includes(" ")) {
+        if (mensagem) {
+          mensagem.style.color = "red";
+          mensagem.textContent = "Por favor, insira seu nome completo (nome e sobrenome).";
+        }
+        return;
+      }
+
+      if (!senha || !senhaForte.test(senha)) {
+        if (mensagem) {
+          mensagem.style.color = "red";
+          mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
+        }
+        return;
+      }
+
+      localStorage.setItem('nomeUsuario', nome);
+
+      if (mensagem) {
+        mensagem.style.color = "green";
+        mensagem.textContent = "Login bem-sucedido!";
+      }
+
+      window.location.href = "entrar.html";
+    });
+  }
+
+  const btnMarcarComoLido = document.querySelector('.btn-alertas');
+  const btnDesativarNotificacoes = document.querySelectorAll('.btn-alertas')[1];
+  let notificacoesAtivas = true;
+
+  if (btnMarcarComoLido) {
+    btnMarcarComoLido.addEventListener('click', function () {
+      const notificacoesImportantes = document.querySelectorAll('.com-noti');
+      notificacoesImportantes.forEach(function (noti) {
+        noti.classList.remove('com-noti');
+        noti.classList.add('sem-noti');
+
+        const img = noti.querySelector('img');
+        if (img) {
+          img.src = 'images/sino-sem-not.png';
+          img.classList.remove('img-alertas-noti');
+          img.classList.add('img-alertas');
+        }
+      });
+    });
+  }
+
+  if (btnDesativarNotificacoes) {
+    btnDesativarNotificacoes.addEventListener('click', function () {
+      const todasNotificacoes = document.querySelectorAll('.notificacoes > div');
+
+      if (notificacoesAtivas) {
+        todasNotificacoes.forEach(noti => {
+          noti.style.display = 'none';
+        });
+        btnDesativarNotificacoes.innerHTML = 'Ativar notificações <img src="images/sino-sem-not.png">';
+      } else {
+        todasNotificacoes.forEach(noti => {
+          noti.style.display = 'flex';
+        });
+        btnDesativarNotificacoes.innerHTML = 'Desativar notificações <img src="images/desativar-noti.png">';
+      }
+
+      notificacoesAtivas = !notificacoesAtivas;
+    });
+  }
+
   const horariosEstacoes = {
     '1': {
       nome: "Estação A",
@@ -108,9 +177,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   };
 
-  const selectEstacao = document.querySelector('.select');
-  const containerHorarios = document.querySelector('.informacao3');
-  const dateInput = document.querySelector('input[type="date"]');
+  const selectEstacao = document.getElementById('stationSelect');
+  const dateInput = document.getElementById('datePicker');
+  const horariosContainer = document.getElementById('horariosContainer');
 
   function criarElementosHorario(horarios) {
     const container = document.createElement('div');
@@ -118,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const dataElement = document.createElement('div');
     dataElement.className = 'data-horario';
-    dataElement.textContent = dateInput.value || 'Horários Disponíveis';
+    dataElement.textContent = dateInput?.value || 'Horários Disponíveis';
     container.appendChild(dataElement);
 
     horarios.forEach((horario, index) => {
@@ -130,91 +199,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
     return container;
   }
-  document.getElementById("loginForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const nome = document.getElementById("nomeUsuario").value.trim();
-    const senha = document.getElementById("senha").value;
-    const mensagem = document.getElementById("mensagemSenha");
-
-    const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
-
-    if (nome.length < 3 || !nome.includes(" ")) {
-      mensagem.style.color = "red";
-      mensagem.textContent = "Por favor, insira seu nome completo (nome e sobrenome).";
-      return;
-    }
-
-    if (!senhaForte.test(senha)) {
-      mensagem.style.color = "red";
-      mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
-      return;
-    }
-
-    localStorage.setItem('nomeUsuario', nome);
-
-    mensagem.style.color = "green";
-    mensagem.textContent = "Login bem-sucedido!";
-
-    window.location.href = "entrar.html";
-  });
 
   function atualizarHorarios() {
+    if (!selectEstacao || !horariosContainer) return;
+
     const estacaoId = selectEstacao.value;
+    if (!estacaoId) return;
+
     const estacao = horariosEstacoes[estacaoId];
+    if (!estacao) return;
 
-    const containerAntigo = document.querySelector('.horarios-container');
-    if (containerAntigo) containerAntigo.remove();
-
-    const novosHorarios = criarElementosHorario(estacao.horarios);
-    containerHorarios.appendChild(novosHorarios);
+    horariosContainer.innerHTML = '';
+    horariosContainer.appendChild(criarElementosHorario(estacao.horarios));
   }
 
-  selectEstacao.addEventListener('change', atualizarHorarios);
-  dateInput.addEventListener('change', atualizarHorarios);
-
-  atualizarHorarios();
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  const nomeArmazenado = localStorage.getItem('nomeUsuario');
-  if (nomeArmazenado) {
-    document.getElementById('nomeUsuario').textContent = nomeArmazenado;
+  if (selectEstacao && dateInput && horariosContainer) {
+    selectEstacao.addEventListener('change', atualizarHorarios);
+    dateInput.addEventListener('change', atualizarHorarios);
+    atualizarHorarios();
   }
 });
-
-document.getElementById('uploadFotoPerfil').addEventListener('change', function (e) {
-  const file = e.target.files[0];
-  if (file && file.type.startsWith('image/')) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      const img = document.getElementById('fotoPerfil');
-      img.src = e.target.result;
-
-      img.onload = function () {
-        URL.revokeObjectURL(img.src);
-      }
-    }
-
-    reader.readAsDataURL(file);
-  }
-});
-
-function fazerLogout() {
-  localStorage.removeItem('nomeUsuario');
-  window.location.href = 'login.html';
-}
-
-function mostrarSenha() {
-  var inputPass = document.getElementById('senha');
-  var btnShowPass = document.getElementById('btn-senha');
-
-  if(inputPass.type === 'password') {
-    inputPass.setAttribute('type', 'text')
-    btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash')
-  } else {
-    inputPass.setAttribute('type','password')
-    btnShowPass.classList.replace('bi-eye-slash', 'bi-eye-fill')
-  }
-}
