@@ -51,54 +51,11 @@ function mostrarSenha() {
   }
 }
 
-function fazerLogout() {
-  localStorage.removeItem('nomeUsuario');
-  window.location.href = 'login.html';
-}
-
 document.addEventListener('DOMContentLoaded', function () {
   const nomeArmazenado = localStorage.getItem('nomeUsuario');
   const nomeUsuarioElement = document.getElementById('nomeUsuario');
   if (nomeUsuarioElement && nomeArmazenado) {
     nomeUsuarioElement.textContent = nomeArmazenado;
-  }
-
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      const nome = document.getElementById("nomeUsuario")?.value.trim();
-      const senha = document.getElementById("senha")?.value;
-      const mensagem = document.getElementById("mensagemSenha");
-
-      const senhaForte = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$/;
-
-      if (!nome || nome.length < 3 || !nome.includes(" ")) {
-        if (mensagem) {
-          mensagem.style.color = "red";
-          mensagem.textContent = "Por favor, insira seu nome completo (nome e sobrenome).";
-        }
-        return;
-      }
-
-      if (!senha || !senhaForte.test(senha)) {
-        if (mensagem) {
-          mensagem.style.color = "red";
-          mensagem.textContent = "A senha deve ter no mínimo 8 caracteres, incluindo maiúsculas, minúsculas, número e caractere especial.";
-        }
-        return;
-      }
-
-      localStorage.setItem('nomeUsuario', nome);
-
-      if (mensagem) {
-        mensagem.style.color = "green";
-        mensagem.textContent = "Login bem-sucedido!";
-      }
-
-      window.location.href = "entrar.html";
-    });
   }
 
   const btnMarcarComoLido = document.querySelector('.btn-alertas');

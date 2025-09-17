@@ -1,3 +1,7 @@
+<?php
+include 'db.php';
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -27,86 +31,95 @@
             </a>
         </div>
         <hr>
-        <a href="entrar.html">
+        <a href="entrar.php">
             <img src="images/casa-menu-lateral.png" alt="Casa Icon">
             Principal
         </a>
-        <a href="alertas.html">
+        <a href="alertas.php">
             <img src="images/sino.png" alt="Sino Icon">
             Alertas
         </a>
-        <a href="gestao.html">
+        <a href="gestao.php">
             <img src="images/pin-de-localizacao.png" alt="Localização Icon">
             Gestão de Rotas
         </a>
-        <a href="quadro.html">
+        <a href="quadro.php">
             <img src="images/relogio.png" alt="Relógio Icon">
             Quadro de Horário
         </a>
-        <a href="relatorio.html">
+        <a href="relatorio.php">
             <img src="images/relatorio.png" alt="Relatório Icon">
             Relatório e Análise
         </a>
-        <a href="informacoes.html">
+        <a href="informacoes.php">
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
-
     </nav>
 
     <main>
 
     </main>
     <div class="container">
-        <h1 class="bem-vindo">Bem-vindo, <span id="nomeUsuario"></span>!</h1>
+        <h2>Bem-vindo, <?= $_SESSION["user_name"] ?>!</h2>
 
         <h2 id="nomeUsuarioExibicao"></h2>
 
         <div class="botoes">
             <div class="botao">
-                <a href="alertas.html">
+                <a href="alertas.php">
                     <img src="images/notificacao.png" alt="Alertas">
                     <h3>Alertas</h3>
                 </a>
             </div>
 
             <div class="botao">
-                <a href="gestao.html">
+                <a href="gestao.php">
                     <img src="images/rotas icon.png" alt="Gestão de Rotas">
                     <h3>Gestão de Rotas</h3>
                 </a>
             </div>
 
             <div class="botao">
-                <a href="quadro.html">
+                <a href="quadro.php">
                     <img src="images/horarios icon.png" alt="Quadro de Horários">
                     <h3>Quadro de Horários</h3>
                 </a>
             </div>
 
             <div class="botao">
-                <a href="relatorio.html">
+                <a href="relatorio.php">
                     <img src="images/relatorios icon.png" alt="Relatórios">
                     <h3>Relatório e Análise</h3>
                 </a>
             </div>
 
             <div class="botao">
-                <a href="informacoes.html">
+                <a href="informacoes.php">
                     <img src="images/informacoes icon.png" alt="Informações Pessoais">
                     <h3>Informações Pessoais</h3>
                 </a>
             </div>
+
+            <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+                <div class="botao adicionar-funcionario">
+                    <a href="adicionar-funcionario.php">
+                        <img src="../Mockup/images/add-friend.png" alt="Adicionar Funcionário">
+                        <h3>Adicionar Funcionário</h3>
+                    </a>
+                </div>
+            <?php endif; ?>
+
         </div>
         <footer class="menu-rodape">
             <div class="item-menu casa-icon">
-                <a href="entrar.html">
+                <a href="entrar.php">
                     <img src="images/casa-home.png" alt="Home">
                     <p>Home</p>
                 </a>
             </div>
             <div class="item-menu">
-                <a href="informacoes.html">
+                <a href="informacoes.php">
                     <img src="images/usuario-home.png" alt="Perfil">
                     <p>Perfil</p>
                 </a>

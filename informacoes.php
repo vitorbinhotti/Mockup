@@ -43,12 +43,23 @@
         <p><strong>Telefone:</strong> (00) 0000-0000</p>
     </div>
 
-    <div class="btn-sair">
-        <a href="index.html">
+    <?php
+    if (isset($_GET['btn-sair'])) {
+        session_destroy();
+        header("Location: index.php");
+        exit;
+    }
+    echo '
+    <div class="btn-sair" id="btn-sair">
+        <a href="index.php">
             <img src="images/exit.png" alt="Sair Icon">
             Sair
         </a>
     </div>
+    ';
+
+
+    ?>
 
     <nav class="icon-menu-lateral">
         <div class="icone-fechar">
@@ -58,27 +69,27 @@
             </a>
         </div>
         <hr>
-        <a href="entrar.html">
+        <a href="entrar.php">
             <img src="images/casa-menu-lateral.png" alt="Casa Icon">
             Principal
         </a>
-        <a href="alertas.html">
+        <a href="alertas.php">
             <img src="images/sino.png" alt="Sino Icon">
             Alertas
         </a>
-        <a href="gestao.html">
+        <a href="gestao.php">
             <img src="images/pin-de-localizacao.png" alt="Localização Icon">
             Gestão de Rotas
         </a>
-        <a href="quadro.html">
+        <a href="quadro.php">
             <img src="images/relogio.png" alt="Relógio Icon">
             Quadro de Horário
         </a>
-        <a href="relatorio.html">
+        <a href="relatorio.php">
             <img src="images/relatorio.png" alt="Relatório Icon">
             Relatório e Análise
         </a>
-        <a href="informacoes.html">
+        <a href="informacoes.php">
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
@@ -88,13 +99,13 @@
 
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
-            <a href="entrar.html">
+            <a href="entrar.php">
                 <img src="images/casa-home.png" alt="Home">
                 <p>Home</p>
             </a>
         </div>
         <div class="item-menu">
-            <a href="informacoes.html">
+            <a href="informacoes.php">
                 <img src="images/usuario-home.png" alt="Perfil">
                 <p>Perfil</p>
             </a>

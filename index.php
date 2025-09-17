@@ -1,3 +1,32 @@
+<?php
+
+include 'db.php';
+session_start();
+
+$msg = "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $name = $_POST["nomeUsuario"] ?? "";
+  $password = $_POST["senha"] ?? "";
+
+  $stmt = $mysqli->prepare("SELECT id, name, cargo, password FROM usuarios WHERE name=? AND password=?");
+  $stmt->bind_param("ss", $name, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $dados = $result->fetch_assoc();
+  $stmt->close();
+
+  if ($dados) {
+    $_SESSION["user_id"] = $dados["id"];
+    $_SESSION["user_name"] = $dados["name"];
+    $_SESSION["user_cargo"] = $dados["cargo"];
+    header("Location: entrar.php");
+    exit;
+  } else {
+    $msg = "Usuário ou senha incorretos!";
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,9 +50,7 @@
 
     <div class="topo">
       <div class="logo">
-        <img
-          src="images/[ SA Parte I ] Smart Cities e a Transformação Digital no Transporte - Mateus Cesar, Vitor Binhotti, Felipe Pivatto e Eduardo Felipe (1080 x 1500 px).png"
-          alt="Logo Stop and Go">
+        <img src="images/[ SA Parte I ] Smart Cities e a Transformação Digital no Transporte - Mateus Cesar, Vitor Binhotti, Felipe Pivatto e Eduardo Felipe (1080 x 1500 px).png" alt="Logo Stop and Go">
       </div>
       <div class="logo-trem">
         <img src="images/images-removebg-preview.png" alt="Ícone trem">
@@ -35,21 +62,18 @@
     </div>
     <p class="login-titulo">Login</p>
 
-    <form class="login1" id="loginForm">
-      <input type="text" id="nomeUsuario" placeholder="Insira seu nome completo">
+    <form class="login1" id="loginForm" method="POST">
+      <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
       <div class="cont_senha">
-        <input type="password" id="senha" placeholder="Insira sua senha">
+        <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
         <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
       </div>
+      <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 
-      <span id="mensagemSenha" style="color: red; font-size: 16px;"></span>
       <button type="submit">Entrar</button>
     </form>
   </div>
-
-  <script src="script.js"></script>
-
 </body>
 
 </html>
