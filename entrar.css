@@ -692,4 +692,57 @@ body {
     .botao-adicionar input:hover {
         background-color: #2d36b0;
     }
+
+
+    .voltar-fim {
+        display: block;
+        width: fit-content;
+        margin: 40px auto 20px auto;
+        padding: 5px;
+        background: #2d3eaf;
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: background 0.2s;
+    }
+
+    .voltar-fim:hover {
+        background: #1a256e;
+    }
+
+    .titulo-read {
+        text-align: center;
+        font-size: 150%;
+        font-weight: bold;
+        margin-top: 5%;
+        color: black;
+    }
+
+    .botao-listar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        flex-direction: column;
+        margin-left: 20px;
+        background-color: #3e48cc;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .botao-listar:hover {
+        background: #2d36b0;
+        color: #fff;
+        text-decoration: none;
+    }
+
 }

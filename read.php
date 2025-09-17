@@ -1,36 +1,12 @@
-<?php
-include 'db.php';
-session_start();
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $password = $_POST['password'];
-    $data_nasc = $_POST['data_nasc'];
-    $cargo = $_POST['cargo'];
-
-    $sql = "INSERT INTO usuarios (name,email, cpf, password, data_nasc, cargo) VALUES ('$name','$email', '$cpf', '$password', '$data_nasc', '$cargo')";
-
-    if ($mysqli->query($sql) === true) {
-        echo "Novo registro criado com sucesso.";
-    } else {
-        echo "Erro" . $sql . "<br>" . $conn->error;
-    }
-    header("Location: entrar.php");
-    $conn->close();
-}
-
-?>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
-    <link rel="stylesheet" href="src/reset.css">
-    <title>Adicionar Funcionário</title>
+    <link rel="stylesheet" href="/src/reset.css">
+    <title>Lista de Funcionários</title>
 </head>
 
 <body>
@@ -81,42 +57,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 Adicionar Funcionário
             </a>
         <?php endif; ?>
-
     </nav>
     <main>
+        <h2 class="titulo-read">Funcionários</h2>
+        <?php
+        include 'db.php';
 
-        <form method="POST">
-            <div class="form-adicionar-funcionario">
-                <label for="name">Nome:</label>
-                <input type="text" name="name" required>
-                <br><br>
-                <label for="email">Email:</label>
-                <input type="email" name="email" required>
-                <br><br>
-                <label for="cpf">CPF:</label>
-                <input type="text" name="cpf" required>
-                <br><br>
-                <label for="password">Senha:</label>
-                <input type="password" name="password" required>
-                <br><br>
-                <label for="data_nasc">Data de Nascimento:</label>
-                <input type="date" name="data_nasc" required>
-                <br><br>
-                <label for="cargo">Cargo:</label>
-                <select name="cargo" required>
-                    <option selected></option>
-                    <option value="adm">Administrador</option>
-                    <option value="funcionario">Funcionário</option>
-                </select>
-                <br><br>
-                <div class="botao-adicionar">
-                    <input type="submit" value="Adicionar">
-                </div>
-                <br><br>
-                <a href="read.php" class="botao-listar">Listar Funcionários</a>
-            </div>
-        </form>
+        $sql = "SELECT * FROM usuarios";
+
+        $result = $mysqli->query($sql);
+
+        if ($result->num_rows > 0) {
+
+            echo "<div>";
+            echo "<table class='tabela-usuarios'>
+    </thead>
+    <tbody>";
+
+            while ($row = $result->fetch_assoc()) {
+
+                echo "<tr>
+        <td data-label='ID'>{$row['id']}</td>
+        <td data-label='Nome'>{$row['name']}</td>
+        </td>
+        </tr>";
+            }
+            echo "</tbody></table>";
+            echo "</div>";
+        } else {
+            echo "Nenhum registro encontrado.";
+        }
+        $mysqli->close();
+        ?>
+        <a href='entrar.php' class='voltar-fim'>Voltar</a>
     </main>
+
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
             <a href="entrar.php">
@@ -131,9 +106,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
         </div>
     </footer>
-
-    <script src="script.js"></script>
-
 
 </body>
 
