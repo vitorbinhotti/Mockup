@@ -1,3 +1,8 @@
+<?php
+include 'db.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,25 +27,19 @@
 
     <div class="tabs">
         <button onclick="mostrarAba('geral')" class="aba ativa">Informações Gerais</button>
-        <button onclick="mostrarAba('endereco')" class="aba">Endereço</button>
         <button onclick="mostrarAba('contato')" class="aba">Contato</button>
     </div>
 
     <div id="geral" class="conteudo-aba">
-        <p><strong>Nome:</strong> xxxxxxx xxxxxxx</p>
-        <p><strong>CPF:</strong> xxx.xxx.xxx-xx</p>
-        <p><strong>Email:</strong> xxxxxxx@xxxxx.com</p>
-        <p><strong>Data de Nascimento:</strong> 01/05/2005</p>
+        <p><strong>Nome:</strong> <?= $_SESSION["user_name"] ?></p>
+        <p><strong>CPF:</strong> <?= $_SESSION["user_cpf"] ?></p>
+        <p><strong>Data de Nascimento:</strong> <?= $_SESSION["user_data_nasc"] ?></p>
     </div>
 
-    <div id="endereco" class="conteudo-aba" style="display: none;">
-        <p><strong>Rua:</strong> Exemplo, 123</p>
-        <p><strong>Cidade:</strong> Exemplo City</p>
-    </div>
 
     <div id="contato" class="conteudo-aba" style="display: none;">
-        <p><strong>Email:</strong> felipe@email.com</p>
-        <p><strong>Telefone:</strong> (00) 0000-0000</p>
+        <p><strong>Email:</strong> <?= $_SESSION["user_email"] ?></p>
+        <p><strong>Cargo:</strong> <?= $_SESSION["user_cargo"] ?></p>
     </div>
 
     <?php
@@ -93,6 +92,13 @@
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
+
+        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
+        <?php endif; ?>
 
     </nav>
 

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
 
-  $stmt = $mysqli->prepare("SELECT id, name, cargo, password FROM usuarios WHERE name=? AND password=?");
+  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=? AND password=?");
   $stmt->bind_param("ss", $name, $password);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -19,6 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["user_id"] = $dados["id"];
     $_SESSION["user_name"] = $dados["name"];
     $_SESSION["user_cargo"] = $dados["cargo"];
+    $_SESSION["user_cpf"] = $dados["cpf"];
+    $_SESSION["user_data_nasc"] = $dados["data_nasc"];
+    $_SESSION["user_email"] = $dados["email"];
+
     header("Location: entrar.php");
     exit;
   } else {

@@ -1,5 +1,11 @@
+<?php
+include 'db.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +14,7 @@
     <script src="script.js"></script>
     <title>Relatórios e Análise</title>
 </head>
+
 <body>
     <header class="topo">
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
@@ -68,6 +75,13 @@
             Informações Pessoais
         </a>
 
+        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
+        <?php endif; ?>
+
     </nav>
 
     <footer class="menu-rodape">
@@ -85,4 +99,5 @@
         </div>
     </footer>
 </body>
+
 </html>

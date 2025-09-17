@@ -1,3 +1,8 @@
+<?php
+include 'db.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,13 +56,12 @@
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
+
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
-            <div class="botao adicionar-funcionario">
-                <a href="adicionar-funcionario.php">
-                    <img src="../Mockup/images/add-friend.png" alt="Adicionar Funcionário">
-                    <h3>Adicionar Funcionário</h3>
-                </a>
-            </div>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
         <?php endif; ?>
 
     </nav>

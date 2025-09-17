@@ -644,11 +644,52 @@ body {
         text-align: center;
     }
 
-    .botao .adicionar-funcionario img {
-        height: 40%;
-        margin-bottom: 4%;
-        margin-top: 10%;
+    .form-adicionar-funcionario {
+        width: 90%;
+        display: flex;
+        padding-top: 5%;
+        margin-left: 15px;
+        flex-direction: column;
+        gap: 5%;
+        padding-bottom: 50px;
     }
 
+    .form-adicionar-funcionario label {
+        font-size: 100%;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
 
+    .form-adicionar-funcionario input,
+    .form-adicionar-funcionario select {
+        border: #2d36b0 solid 1px;
+        width: 100%;
+        padding: 10px;
+        border-radius: 25px;
+        font-size: 100%;
+    }
+
+    .botao-adicionar {
+        display: flex;
+        justify-content: center;
+        width: 90%;
+        flex-direction: column;
+        margin-left: 20px;
+    }
+
+    .botao-adicionar input {
+        background-color: #3e48cc;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .botao-adicionar input:hover {
+        background-color: #2d36b0;
+    }
 }

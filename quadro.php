@@ -1,3 +1,8 @@
+<?php
+include 'db.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -53,6 +58,13 @@
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
+
+        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
+        <?php endif; ?>
     </nav>
 
     <div class="informacao3">
@@ -60,7 +72,7 @@
             <div class="date-wrapper">
                 <input type="date" id="datePicker" name="datePicker">
             </div>
-    
+
             <select class="select" id="stationSelect">
                 <option value="" selected disabled>Selecione uma estação</option>
                 <option value="1">Estação A</option>
@@ -70,8 +82,8 @@
         </div>
         <div id="horariosContainer"></div>
     </div>
-        
-        <div id="horariosContainer" class="horarios-wrapper"></div>
+
+    <div id="horariosContainer" class="horarios-wrapper"></div>
     </div>
 
     <footer class="menu-rodape">

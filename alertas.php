@@ -1,5 +1,11 @@
+<?php
+include 'db.php';
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +14,7 @@
     <script src="script.js"></script>
     <title>Alertas</title>
 </head>
+
 <body>
     <header class="topo">
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
@@ -37,11 +44,11 @@
             <img src="images/pin-de-localizacao.png" alt="Localização Icon">
             Gestão de Rotas
         </a>
-        <a href="quadro.php"> 
+        <a href="quadro.php">
             <img src="images/relogio.png" alt="Relógio Icon">
             Quadro de Horário
         </a>
-        <a href="relatorio.php"> 
+        <a href="relatorio.php">
             <img src="images/relatorio.png" alt="Relatório Icon">
             Relatório e Análise
         </a>
@@ -49,7 +56,14 @@
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
-        
+
+        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
+        <?php endif; ?>
+
     </nav>
 
     <div class="notificacoes">
@@ -95,9 +109,9 @@
 
         <button class="btn-alertas" type="button">Marcar como lido <img src="images/noti-lido.png"></button>
         <button class="btn-alertas" type="button">Desativar notificações <img src="images/desativar-noti.png"></button>
-        
+
     </div>
-    
+
 
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
@@ -114,4 +128,5 @@
         </div>
     </footer>
 </body>
+
 </html>

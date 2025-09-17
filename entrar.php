@@ -55,6 +55,13 @@ session_start();
             <img src="images/do-utilizador.png" alt="User Icon">
             Informações Pessoais
         </a>
+
+        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
+                <a href="adicionar-funcionario.php">
+                    <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                    Adicionar Funcionário
+                </a>
+        <?php endif; ?>
     </nav>
 
     <main>
