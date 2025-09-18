@@ -745,4 +745,16 @@ body {
         text-decoration: none;
     }
 
+    .table-usuarios {
+        border: 2px solid #3e48cc;
+        border-collapse: collapse;
+        width: 90%;
+        margin: 5% auto;
+        gap: 10%;
+        border-radius: 8px;
+    }
+    .table-usuarios th, .table-usuarios td {
+        gap: 20%;
+    }
+
 }

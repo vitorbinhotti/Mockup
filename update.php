@@ -51,7 +51,11 @@ $row = $result->fetch_assoc();
         <input type="number" name="cpf" value="<?php echo $row['cpf']; ?>">
         <br><br>
         <label for="cargo">Cargo:</label>
-        <input type="text" name="cargo" value="<?php echo $row['cargo']; ?>">
+        <select name="cargo" required>
+            <option selected></option>
+            <option value="adm">Administrador</option>
+            <option value="funcionario">Funcionário</option>
+        </select>
         <br><br>
         <input type="submit" value="Atualizar">
 
