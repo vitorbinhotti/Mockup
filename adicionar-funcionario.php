@@ -117,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </div>
         </form>
     </main>
+    
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
             <a href="entrar.php">

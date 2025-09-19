@@ -697,7 +697,7 @@ body {
     .voltar-fim {
         display: block;
         width: fit-content;
-        margin: 40px auto 20px auto;
+        margin: 40px auto 10px auto;
         padding: 5px;
         background: #2d3eaf;
         color: #fff;
@@ -727,7 +727,7 @@ body {
         justify-content: center;
         width: 90%;
         flex-direction: column;
-        margin-left: 20px;
+        margin-left: 15px;
         background-color: #3e48cc;
         color: white;
         padding: 10px;
@@ -746,15 +746,48 @@ body {
     }
 
     .table-usuarios {
-        border: 2px solid #3e48cc;
         border-collapse: collapse;
         width: 90%;
-        margin: 5% auto;
-        gap: 10%;
-        border-radius: 8px;
+        margin-left:10%;
+        margin-right: auto;
+        
     }
-    .table-usuarios th, .table-usuarios td {
-        gap: 20%;
+
+    .table-usuarios td {
+        border: 1px solid #3e48cc;
+        padding: 8px;
+        text-align: center;
+        font-size: 90%;
+    }
+
+    .btn {
+        justify-content: center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        }
+
+    .btn-excluir {
+        background-color: #f44336;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+
+    .voltar-update {
+        display: block;
+        width: fit-content;
+        margin: -10px auto 10px auto;
+        padding: 5px;
+        background: #2d3eaf;
+        color: #fff;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.1em;
+        transition: background 0.2s;
     }
 
 }

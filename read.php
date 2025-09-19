@@ -75,14 +75,21 @@
     </thead>
     <tbody>";
 
-                while ($row = $result->fetch_assoc()) {
-                    echo "<tr>
-        <td data-label='ID'>{$row['id']}</td>
-        <td data-label='Nome'>{$row['name']}</td>
-        <td>
-            <a href='update.php?id=" . urlencode($row['id']) . "' class='btn'>Editar</a>
-            <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn-excluir'>Excluir</a>
-        </td>
+        echo "<tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>";
+
+        while ($row = $result->fetch_assoc()) {
+
+        echo "<tr>
+            <td data-label='ID'>{$row['id']}</td>
+            <td data-label='Nome'>{$row['name']}</td>
+            <td class'btns-acao'>
+                <a href='update.php?id=" . urlencode($row['id']) . "' class='btn'>Editar</a>
+                <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn-excluir'>Excluir</a>
+            </td>
         
         </tr>";
                 }
