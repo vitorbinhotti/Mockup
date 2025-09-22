@@ -69,14 +69,36 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <form class="login1" id="loginForm" method="POST">
       <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
       <div class="cont_senha">
         <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
-        <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
+        <span id="toggleSenha" class="toggle-senha" onclick="mostrarSenha()"><i class="bi bi-eye-fill"></i></span>
       </div>
+      <script>
+        function mostrarSenha() {
+          const inputPass = document.getElementById('senha');
+          const btnShowPass = document.getElementById('toggleSenha');
+          const icon = btnShowPass.querySelector('i');
+          if (inputPass && btnShowPass && icon) {
+            if (inputPass.type === 'password') {
+              inputPass.type = 'text';
+              icon.classList.remove('bi-eye-fill');
+              icon.classList.add('bi-eye-slash');
+            } else {
+              inputPass.type = 'password';
+              icon.classList.remove('bi-eye-slash');
+              icon.classList.add('bi-eye-fill');
+            }
+          }
+        }
+      </script>
       <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 
       <button type="submit">Entrar</button>
     </form>
+
+
+
   </div>
 </body>
 

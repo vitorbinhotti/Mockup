@@ -53,8 +53,8 @@
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
-                Adicionar Funcionário
+                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
+                Administração de Funcionários
             </a>
         <?php endif; ?>
     </nav>
@@ -101,7 +101,7 @@
             $mysqli->close();
             ?>
         </div>
-        <a href='entrar.php' class='voltar-fim'>Voltar</a>
+        <a href='adicionar-funcionario.php' class='voltar-fim'>Voltar</a>
     </main>
 
     <footer class="menu-rodape">

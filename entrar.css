@@ -727,7 +727,25 @@ body {
         justify-content: center;
         width: 90%;
         flex-direction: column;
-        margin-left: 15px;
+        margin-left: 20px;
+        background-color: #3e48cc;
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 25px;
+        font-size: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .botao-atualizar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
+        flex-direction: column;
+        margin-left: 9px;
         background-color: #3e48cc;
         color: white;
         padding: 10px;
@@ -748,9 +766,9 @@ body {
     .table-usuarios {
         border-collapse: collapse;
         width: 90%;
-        margin-left:10%;
+        margin-left: 10%;
         margin-right: auto;
-        
+
     }
 
     .table-usuarios td {
@@ -766,7 +784,7 @@ body {
         color: white;
         padding: 5px 10px;
         border-radius: 5px;
-        }
+    }
 
     .btn-excluir {
         background-color: #f44336;

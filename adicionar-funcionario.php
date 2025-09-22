@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="stylesheet" href="src/reset.css">
-    <title>Adicionar Funcionário</title>
+    <title>Administração de Funcionários</title>
 </head>
 
 <body>
@@ -77,8 +77,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
-                Adicionar Funcionário
+                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
+                Administração de Funcionários
             </a>
         <?php endif; ?>
 
