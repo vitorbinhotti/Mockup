@@ -1,3 +1,10 @@
+<?php
+if (isset($_SESSION["user_id"])) {
+    header("Location: entrar.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,15 +82,15 @@
     </thead>
     <tbody>";
 
-        echo "<tr>
+                echo "<tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Ações</th>
         </tr>";
 
-        while ($row = $result->fetch_assoc()) {
+                while ($row = $result->fetch_assoc()) {
 
-        echo "<tr>
+                    echo "<tr>
             <td data-label='ID'>{$row['id']}</td>
             <td data-label='Nome'>{$row['name']}</td>
             <td class'btns-acao'>

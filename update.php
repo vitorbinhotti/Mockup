@@ -29,6 +29,11 @@ $sql = "SELECT * FROM usuarios WHERE id=$id";
 $result = $mysqli->query($sql);
 $row = $result->fetch_assoc();
 
+if (isset($_SESSION["user_id"])) {
+    header("Location: entrar.php");
+    exit;
+}
+
 ?>
 
 <html lang="en">

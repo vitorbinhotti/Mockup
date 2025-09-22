@@ -1,7 +1,15 @@
 <?php
 include 'db.php';
 session_start();
+
+
+if (isset($_SESSION["user_id"])) {
+  header("Location: entrar.php");
+  exit;
+}
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
