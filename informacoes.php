@@ -49,12 +49,14 @@ session_start();
         exit;
     }
     echo '
+    <form action="" method="GET">
     <div class="btn-sair" id="btn-sair">
-        <a href="index.php">
+        <button type="submit" name="btn-sair" class="sair-button">
             <img src="images/exit.png" alt="Sair Icon">
             Sair
-        </a>
+        </button>
     </div>
+    </form>
     ';
 
 
