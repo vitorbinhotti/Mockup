@@ -1,11 +1,16 @@
 <?php
 include 'db.php';
+
+?>
+
+<?php
+include 'db.php';
 session_start();
 
-if (isset($_SESSION["user_id"])) {
-  header("Location: entrar.php");
-  exit;
-}
+$user_id = $_SESSION["user_id"];
+$sql = "SELECT * FROM usuarios WHERE id = $user_id";
+$result = $mysqli->query($sql);
+$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -48,19 +53,24 @@ if (isset($_SESSION["user_id"])) {
     </div>
 
     <?php
-    if (isset($_GET['btn-sair'])) {
+    echo '<a class="btn-editar" href="update2.php?id=' . $_SESSION["user_id"] . '">
+        <img src="images/editar2.png" alt="Editar Icon">
+        Editar Informações
+    </a>';
+
+    if (isset($_GET['logout'])) {
         session_destroy();
         header("Location: index.php");
         exit;
     }
     echo '
     <form action="" method="GET">
-    <div class="btn-sair" id="btn-sair">
-        <button type="submit" name="btn-sair" class="sair-button">
-            <img src="images/exit.png" alt="Sair Icon">
-            Sair
-        </button>
-    </div>
+        <div class="btn-sair" id="btn-sair">
+            <a href="?logout=1" class="sair-button">
+                <img src="images/exit.png" alt="Sair Icon">
+                Sair
+            </a>
+        </div>
     </form>
     ';
 

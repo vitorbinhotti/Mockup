@@ -3,10 +3,6 @@
 include 'db.php';
 session_start();
 
-if (isset($_SESSION["user_id"])) {
-  header("Location: entrar.php");
-  exit;
-}
 
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

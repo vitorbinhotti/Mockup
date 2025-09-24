@@ -329,7 +329,7 @@ body {
         max-width: 50%;
     }
 
-    .btn-sair button {
+    .btn-sair a {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -345,7 +345,26 @@ body {
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
-    .btn-sair button:hover {
+    .btn-editar {
+        display: flex;
+        justify-content: center;
+        background-color: #3e48cc;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        padding: 6% 10%;
+        border-radius: 25px;
+        align-items: center;
+        padding: 2% 0;
+        margin: 5% auto;
+        gap: 5%;
+        width: 90%;
+        height: 40px;
+        max-width: 50%;
+    }
+
+
+    .btn-sair a:hover {
         background-color: #2d36b0;
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

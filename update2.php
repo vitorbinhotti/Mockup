@@ -1,22 +1,41 @@
 <?php
+
 include 'db.php';
 session_start();
 
+$id = $_GET['id'];
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $sql = "UPDATE usuarios SET name ='$name', email ='$email' WHERE id = $id";
+    if ($mysqli->query($sql) === true) {
+        if ($_SESSION["user_id"] == $id) {
+            $_SESSION["user_name"] = $name;
+            $_SESSION["user_email"] = $email;
+        }
+        $mysqli->close();
+        header("Location: informacoes.php");
+        exit();
+    } else {
+        echo "Erro" . $sql . "<br>" . $mysqli->error;
+    }
+}
+
+$sql = "SELECT * FROM usuarios WHERE id=$id";
+$result = $mysqli->query($sql);
+$row = $result->fetch_assoc();
 
 ?>
 
-
-
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
-    <link rel="shortcut icon" type="image/ico" href="images/bell.png">
-    <script src="script.js"></script>
-    <title>Alertas</title>
+    <link rel="stylesheet" href="/src/reset.css">
+    <title>Update</title>
 </head>
 
 <body>
@@ -61,61 +80,25 @@ session_start();
             Informações Pessoais
         </a>
 
-        <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
-            <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
-            </a>
-        <?php endif; ?>
-
     </nav>
+    <main>
+        <form action="update2.php?id=<?php echo $row['id']; ?>" method="POST" class="form-adicionar-funcionario">
 
-    <div class="notificacoes">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" value="<?php echo htmlspecialchars($row['name']); ?>" required>
+            <br><br>
+            <label for="email">Email:</label>
+            <input type="email" name="email" value="<?php echo htmlspecialchars($row['email']); ?>" required>
+            <br><br>
+            <div class="botao-adicionar">
+                <input type="submit" value="Salvar Alterações">
+            </div>
 
-        <div class="com-noti">
-            <img class="img-alertas-noti" src="images/alerta icon.png">
-            <h3>Falta de trens na ferrovia sul! </h3>
-        </div>
+        </form>
 
-        <div class="com-noti">
-            <img class="img-alertas-noti" src="images/alerta icon.png">
-            <h3>Trem falhou em rota! </h3>
-        </div>
 
-        <div class="sem-noti">
-            <img class="img-alertas" src="images/sino-sem-not.png">
-            <h3>Trem saiu da estação norte. </h3>
-        </div>
-
-        <div class="sem-noti">
-            <img class="img-alertas" src="images/sino-sem-not.png">
-            <h3>Manifestação referente o valor da passagem!</h3>
-        </div>
-
-        <div class="sem-noti">
-            <img class="img-alertas" src="images/sino-sem-not.png">
-            <h3>Climatização precária!</h3>
-        </div>
-
-        <div class="sem-noti">
-            <img class="img-alertas" src="images/sino-sem-not.png">
-            <h3>Segurança atualizada com sucesso!</h3>
-        </div>
-
-        <div class="sem-noti">
-            <img class="img-alertas" src="images/sino-sem-not.png">
-            <h3>Atraso na saída do trem leste!</h3>
-        </div>
-
-    </div>
-
-    <div>
-
-        <button class="btn-alertas" type="button">Marcar como lido <img src="images/noti-lido.png"></button>
-        <button class="btn-alertas" type="button">Desativar notificações <img src="images/desativar-noti.png"></button>
-
-    </div>
-
+        <a href='informacoes.php' class="voltar-update">Voltar</a>
+    </main>
 
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
@@ -131,6 +114,7 @@ session_start();
             </a>
         </div>
     </footer>
+
 </body>
 
 </html>
