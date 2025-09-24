@@ -35,6 +35,7 @@ $row = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="stylesheet" href="/src/reset.css">
+    <link rel="shortcut icon" type="image/ico" href="images/editar2.png">
     <title>Update</title>
 </head>
 
