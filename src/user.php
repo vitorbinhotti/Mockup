@@ -8,14 +8,14 @@ class User
     {
         $this->mysqli = $db;
     }
-public function register($name, $email, $senha, $cargo, $cpf, $data_nasc)
-{
-    $hash = password_hash($senha, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO usuarios (name, email, password, cpf, data_nasc, cargo) VALUES (?, ?, ?, ?, ?, ?)";
-    $stmt = $this->mysqli->prepare($sql);
-    $stmt->bind_param("ssssss", $name, $email, $hash, $cpf, $data_nasc, $cargo);
-    return $stmt->execute();
-}
+    public function register($name, $email, $senha, $cargo, $cpf, $data_nasc)
+    {
+        $hash = password_hash($senha, PASSWORD_DEFAULT);
+        $sql = "INSERT INTO usuarios (name, email, password, cpf, data_nasc, cargo) VALUES (?, ?, ?, ?, ?, ?)";
+        $stmt = $this->mysqli->prepare($sql);
+        $stmt->bind_param("ssssss", $name, $email, $hash, $cpf, $data_nasc, $cargo);
+        return $stmt->execute();
+    }
 
     public function login($name, $password)
     {
