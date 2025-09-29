@@ -1,34 +1,21 @@
 <?php
 
 include 'db.php';
+include 'src/auth.php';
+include 'src/user.php';
+
 session_start();
 
-
-$msg = "";
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-  $name = $_POST["nomeUsuario"] ?? "";
-  $password = $_POST["senha"] ?? "";
-
-  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=? AND password=?");
-  $stmt->bind_param("ss", $name, $password);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  $dados = $result->fetch_assoc();
-  $stmt->close();
-
-  if ($dados) {
-    $_SESSION["user_id"] = $dados["id"];
-    $_SESSION["user_name"] = $dados["name"];
-    $_SESSION["user_cargo"] = $dados["cargo"];
-    $_SESSION["user_cpf"] = $dados["cpf"];
-    $_SESSION["user_data_nasc"] = $dados["data_nasc"];
-    $_SESSION["user_email"] = $dados["email"];
-
-    header("Location: entrar.php");
-    exit;
-  } else {
-    $msg = "Usuário ou senha incorretos!";
-  }
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $user = new User($mysqli);
+    $auth = new Auth();
+    $loggedInUser = $user->login($_POST['nomeUsuario'], $_POST['senha']);
+    if($loggedInUser){
+        $auth -> loginUser($loggedInUser);
+        header("location: entrar.php");
+    } else{
+        echo "<script>alert('Login Falhou!')</script>";
+    }
 }
 ?>
 
@@ -67,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
     <p class="login-titulo">Login</p>
 
-    <form class="login1" id="loginForm" method="POST">
+    <form class="login1" id="loginForm" method="POST" action="index.php">
       <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -93,7 +80,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           }
         }
       </script>
-      <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 
       <button type="submit">Entrar</button>
     </form>

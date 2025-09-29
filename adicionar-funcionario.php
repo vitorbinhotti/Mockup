@@ -1,25 +1,15 @@
 <?php
 include 'db.php';
+include 'src/auth.php';
+include 'src/user.php';
+
 session_start();
 
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $cpf = $_POST['cpf'];
-    $password = $_POST['password'];
-    $data_nasc = $_POST['data_nasc'];
-    $cargo = $_POST['cargo'];
-
-    $sql = "INSERT INTO usuarios (name,email, cpf, password, data_nasc, cargo) VALUES ('$name','$email', '$cpf', '$password', '$data_nasc', '$cargo')";
-
-    if ($mysqli->query($sql) === true) {
-        echo "Novo registro criado com sucesso.";
-    } else {
-        echo "Erro" . $sql . "<br>" . $conn->error;
-    }
-    header("Location: entrar.php");
-    $conn->close();
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    $user = new User($mysqli);
+    
+    $user->register($_POST['name'], $_POST['email'], $_POST['password'], $_POST['cargo'], $_POST['cpf'], $_POST['data_nasc']);
+    header("location: entrar.php");
 }
 
 ?>
