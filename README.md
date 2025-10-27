@@ -39,25 +39,18 @@ A API foi escolhida para validar o campo de email no cadastro do Sistema SA, gar
 Funcionalidades Implementadas
 
 Front-end:
-
 Ao digitar o email no formulário, a API é consultada automaticamente.
-
 Exibe mensagens claras se o email for inválido ou temporário.
 
 Back-end:
-
 No create/update, valida novamente o email consultando a API.
-
 Garante que apenas emails válidos sejam salvos no banco.
 
 Tratamento de erros:
-
 Email inválido, API fora do ar, timeouts, campos vazios.
 
 Persistência:
-
 Email validado é salvo no banco.
 
 Registro de auditoria:
-
 Timestamp da verificação e status (ok/erro) registrados no banco ou log da aplicação.
