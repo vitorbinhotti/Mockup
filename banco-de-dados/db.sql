@@ -11,4 +11,4 @@ create table usuarios (
     cargo enum('funcionario','adm') not null    
 );
 
-INSERT INTO usuarios (name, password, email, cpf, data_nasc, cargo) VALUES ('admin','$2y$10$dFcd9CWxAwe.v2weZI7LGOHI2/Vu2Vb0rjPGB39.Bf8DAurlhwM/W', 'admin@gmail.com', '000.000.000-00', '2000-05-23', 'adm');
+INSERT INTO usuarios (name, password, email, cpf, data_nasc, cargo) VALUES ('admin','mockup123@', 'admin@gmail.com', '000.000.000-00', '2000-05-23', 'adm');

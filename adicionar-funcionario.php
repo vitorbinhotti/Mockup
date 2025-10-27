@@ -1,15 +1,30 @@
 <?php
 include 'db.php';
-include 'src/auth.php';
-include 'src/user.php';
-
+include 'api.php';
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $user = new User($mysqli);
-    
-    $user->register($_POST['name'], $_POST['email'], $_POST['password'], $_POST['cargo'], $_POST['cpf'], $_POST['data_nasc']);
-    header("location: entrar.php");
+$email_verify = new email();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $cpf = $_POST['cpf'];
+    $password = $_POST['password'];
+    $data_nasc = $_POST['data_nasc'];
+    $cargo = $_POST['cargo'];
+
+    $sql = "INSERT INTO usuarios (name,email, cpf, password, data_nasc, cargo) VALUES ('$name','$email', '$cpf', '$password', '$data_nasc', '$cargo')";
+    if ($email_verify->verificar_email($_POST['email']) == false) {
+        echo "<script>alert('Email inválido. Por favor, insira um email válido.') </script>";
+        header("Refresh:0;");
+        exit();
+    }else if ($mysqli->query($sql)) {
+        echo "Novo registro criado com sucesso.";
+    } else {
+        echo "Erro" . $sql . "<br>" . $conn->error;
+    }
+    header("Location: entrar.php");
+    $conn->close();
 }
 
 ?>
@@ -21,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="stylesheet" href="src/reset.css">
-    <title>Administração de Funcionários</title>
+    <title>Adicionar Funcionário</title>
 </head>
 
 <body>
@@ -68,8 +83,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
             </a>
         <?php endif; ?>
 
@@ -108,7 +123,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             </div>
         </form>
     </main>
-    
+
     <footer class="menu-rodape">
         <div class="item-menu casa-icon">
             <a href="entrar.php">

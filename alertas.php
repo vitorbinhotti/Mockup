@@ -1,11 +1,7 @@
 <?php
 include 'db.php';
 session_start();
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,8 +59,8 @@ session_start();
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
             </a>
         <?php endif; ?>
 

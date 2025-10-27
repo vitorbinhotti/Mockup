@@ -1,11 +1,6 @@
 <?php
 include 'db.php';
 session_start();
-
-if (isset($_SESSION["user_id"])) {
-  header("Location: entrar.php");
-  exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -82,8 +77,8 @@ if (isset($_SESSION["user_id"])) {
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
             </a>
         <?php endif; ?>
 

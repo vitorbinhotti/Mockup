@@ -1,16 +1,6 @@
 <?php
 include 'db.php';
-
-?>
-
-<?php
-include 'db.php';
 session_start();
-
-$user_id = $_SESSION["user_id"];
-$sql = "SELECT * FROM usuarios WHERE id = $user_id";
-$result = $mysqli->query($sql);
-$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -53,25 +43,18 @@ $row = $result->fetch_assoc();
     </div>
 
     <?php
-    echo '<a class="btn-editar" href="update2.php?id=' . $_SESSION["user_id"] . '">
-        <img src="images/editar2.png" alt="Editar Icon">
-        Editar Informações
-    </a>';
-
-    if (isset($_GET['logout'])) {
+    if (isset($_GET['btn-sair'])) {
         session_destroy();
         header("Location: index.php");
         exit;
     }
     echo '
-    <form action="" method="GET">
-        <div class="btn-sair" id="btn-sair">
-            <a href="?logout=1" class="sair-button">
-                <img src="images/exit.png" alt="Sair Icon">
-                Sair
-            </a>
-        </div>
-    </form>
+    <div class="btn-sair" id="btn-sair">
+        <a href="index.php">
+            <img src="images/exit.png" alt="Sair Icon">
+            Sair
+        </a>
+    </div>
     ';
 
 
@@ -112,8 +95,8 @@ $row = $result->fetch_assoc();
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
             </a>
         <?php endif; ?>
 

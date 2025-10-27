@@ -1,10 +1,3 @@
-<?php
-if (isset($_SESSION["user_id"])) {
-    header("Location: entrar.php");
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -60,8 +53,8 @@ if (isset($_SESSION["user_id"])) {
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
             <a href="adicionar-funcionario.php">
-                <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                Administração de Funcionários
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
             </a>
         <?php endif; ?>
     </nav>
@@ -82,15 +75,15 @@ if (isset($_SESSION["user_id"])) {
     </thead>
     <tbody>";
 
-                echo "<tr>
+        echo "<tr>
             <th>ID</th>
             <th>Nome</th>
             <th>Ações</th>
         </tr>";
 
-                while ($row = $result->fetch_assoc()) {
+        while ($row = $result->fetch_assoc()) {
 
-                    echo "<tr>
+        echo "<tr>
             <td data-label='ID'>{$row['id']}</td>
             <td data-label='Nome'>{$row['name']}</td>
             <td class'btns-acao'>
@@ -108,7 +101,7 @@ if (isset($_SESSION["user_id"])) {
             $mysqli->close();
             ?>
         </div>
-        <a href='adicionar-funcionario.php' class='voltar-fim'>Voltar</a>
+        <a href='entrar.php' class='voltar-fim'>Voltar</a>
     </main>
 
     <footer class="menu-rodape">

@@ -32,24 +32,21 @@ function mostrarAbaRelatorio(abaId, botaoClicado) {
 
   const aba = document.getElementById(abaId);
   if (aba) aba.style.display = 'block';
-
+  
   if (botaoClicado) botaoClicado.classList.add('ativa');
 }
 
 function mostrarSenha() {
   const inputPass = document.getElementById('senha');
-  const btnShowPass = document.getElementById('toggleSenha');
-  const icon = btnShowPass.querySelector('i');
+  const btnShowPass = document.getElementById('btn-senha');
 
-  if (inputPass && btnShowPass && icon) {
+  if (inputPass && btnShowPass) {
     if (inputPass.type === 'password') {
-      inputPass.type = 'text';
-      icon.classList.remove('bi-eye-fill');
-      icon.classList.add('bi-eye-slash');
+      inputPass.setAttribute('type', 'text');
+      btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash');
     } else {
-      inputPass.type = 'password';
-      icon.classList.remove('bi-eye-slash');
-      icon.classList.add('bi-eye-fill');
+      inputPass.setAttribute('type', 'password');
+      btnShowPass.classList.replace('bi-eye-slash', 'bi-eye-fill');
     }
   }
 }

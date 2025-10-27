@@ -1,8 +1,6 @@
 <?php
 include 'db.php';
 session_start();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -60,8 +58,8 @@ session_start();
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
                 <a href="adicionar-funcionario.php">
-                    <img src="../Mockup/images/add-friend-menor.png" alt="Administração de Funcionários">
-                    Administração de Funcionários
+                    <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                    Adicionar Funcionário
                 </a>
         <?php endif; ?>
     </nav>
@@ -113,8 +111,8 @@ session_start();
             <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
                 <div class="botao adicionar-funcionario">
                     <a href="adicionar-funcionario.php">
-                        <img src="../Mockup/images/add-friend.png" alt="Administração de Funcionários">
-                        <h3>Administração de Funcionários</h3>
+                        <img src="../Mockup/images/add-friend.png" alt="Adicionar Funcionário">
+                        <h3>Adicionar Funcionário</h3>
                     </a>
                 </div>
             <?php endif; ?>

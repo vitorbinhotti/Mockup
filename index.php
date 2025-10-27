@@ -1,21 +1,33 @@
 <?php
 
 include 'db.php';
-include 'src/auth.php';
-include 'src/user.php';
-
 session_start();
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $user = new User($mysqli);
-    $auth = new Auth();
-    $loggedInUser = $user->login($_POST['nomeUsuario'], $_POST['senha']);
-    if($loggedInUser){
-        $auth -> loginUser($loggedInUser);
-        header("location: entrar.php");
-    } else{
-        echo "<script>alert('Login Falhou!')</script>";
-    }
+$msg = "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+  $name = $_POST["nomeUsuario"] ?? "";
+  $password = $_POST["senha"] ?? "";
+
+  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=? AND password=?");
+  $stmt->bind_param("ss", $name, $password);
+  $stmt->execute();
+  $result = $stmt->get_result();
+  $dados = $result->fetch_assoc();
+  $stmt->close();
+
+  if ($dados) {
+    $_SESSION["user_id"] = $dados["id"];
+    $_SESSION["user_name"] = $dados["name"];
+    $_SESSION["user_cargo"] = $dados["cargo"];
+    $_SESSION["user_cpf"] = $dados["cpf"];
+    $_SESSION["user_data_nasc"] = $dados["data_nasc"];
+    $_SESSION["user_email"] = $dados["email"];
+
+    header("Location: entrar.php");
+    exit;
+  } else {
+    $msg = "Usuário ou senha incorretos!";
+  }
 }
 ?>
 
@@ -54,38 +66,17 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     </div>
     <p class="login-titulo">Login</p>
 
-    <form class="login1" id="loginForm" method="POST" action="index.php">
+    <form class="login1" id="loginForm" method="POST">
       <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
       <div class="cont_senha">
         <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
-        <span id="toggleSenha" class="toggle-senha" onclick="mostrarSenha()"><i class="bi bi-eye-fill"></i></span>
+        <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
       </div>
-      <script>
-        function mostrarSenha() {
-          const inputPass = document.getElementById('senha');
-          const btnShowPass = document.getElementById('toggleSenha');
-          const icon = btnShowPass.querySelector('i');
-          if (inputPass && btnShowPass && icon) {
-            if (inputPass.type === 'password') {
-              inputPass.type = 'text';
-              icon.classList.remove('bi-eye-fill');
-              icon.classList.add('bi-eye-slash');
-            } else {
-              inputPass.type = 'password';
-              icon.classList.remove('bi-eye-slash');
-              icon.classList.add('bi-eye-fill');
-            }
-          }
-        }
-      </script>
+      <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 
       <button type="submit">Entrar</button>
     </form>
-
-
-
   </div>
 </body>
 
