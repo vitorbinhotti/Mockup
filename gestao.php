@@ -11,7 +11,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="shortcut icon" type="image/ico" href="images/map-with-a-pin-small-symbol-inside-a-circle.png">
-    <script src="script.js"></script>
     <title>Gestão de Rotas</title>
 </head>
 
@@ -125,6 +124,7 @@ session_start();
             </a>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
