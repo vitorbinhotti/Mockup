@@ -772,25 +772,16 @@ body {
 
     .table-usuarios {
         width: 90%;
-<<<<<<< HEAD
         margin-left: 7%;
         margin-right: 7%;
-=======
-        margin: 0 auto;
->>>>>>> cc3af812c747cc6c404eeac6f5c447e31c25b83a
     }
 
     .table-usuarios td {
         border: 1px solid #3e48cc;
         padding: 12px;
         text-align: center;
-<<<<<<< HEAD
         font-size: 90%;
 
-=======
-        font-size: 18px;
-        
->>>>>>> cc3af812c747cc6c404eeac6f5c447e31c25b83a
     }
 
     .btn {
