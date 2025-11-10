@@ -11,9 +11,7 @@ $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
-  echo $name;
-  echo $password;
-
+  
   $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE name=?");
   $stmt->bind_param("s", $name);
   $stmt->execute();

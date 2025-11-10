@@ -119,7 +119,7 @@ $row = $result->fetch_assoc();
                 <option value="funcionario" <?php if ($row['cargo'] == 'funcionario') echo 'selected'; ?>>Funcionário</option>
             </select>
             <br><br>
-            <a href='read.php' class="botao-listar">Atualizar</a>
+            <button type="submit" class="botao-listar">Atualizar</button>
 
         </form>
 
