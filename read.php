@@ -102,7 +102,7 @@
                 $mysqli->close();
                 ?>
             </div>
-            <a href='entrar.php' class='voltar-fim'>Voltar</a>
+            <a href='adicionar-funcionario.php' class='voltar-fim'>Voltar</a>
         </div>
     </main>
 
