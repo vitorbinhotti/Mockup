@@ -28,13 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["user_cpf"] = $dados["cpf"];
     $_SESSION["user_data_nasc"] = $dados["data_nasc"];
     $_SESSION["user_email"] = $dados["email"];
-    
+
     header("Location: entrar.php");
     exit();
   } else {
     $msg = "Nome de usuário ou senha incorretos.";
   }
-  
+
   /*if ($dados && password_verify($password, $dados["password"])) {
     $_SESSION["user_id"] = $dados["id"];
     $_SESSION["user_name"] = $dados["name"];
@@ -93,8 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
       <div class="cont_senha">
-        <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
-        <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
+        <input type="password" name="senha" placeholder="Insira sua senha">
+        <i class="bi bi-eye-fill toggle-senha" title="Mostrar senha"></i>
       </div>
       <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 

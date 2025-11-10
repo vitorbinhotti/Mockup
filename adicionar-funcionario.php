@@ -19,7 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo "<script>alert('Email inválido. Por favor, insira um email válido.') </script>";
         header("Refresh:0;");
         exit();
-    }else if ($mysqli->query($sql)) {
+    } else if ($mysqli->query($sql)) {
         echo "Novo registro criado com sucesso.";
     } else {
         echo "Erro" . $sql . "<br>" . $conn->error;
@@ -37,6 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="stylesheet" href="src/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>Adicionar Funcionário</title>
 </head>
 
@@ -104,7 +105,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="text" name="cpf" required>
                 <br><br>
                 <label for="password">Senha:</label>
-                <input type="password" name="password" required>
+                <div class="cont_senha">
+                    <input type="password" name="senha" placeholder="Insira sua senha">
+                    <i class="bi bi-eye-fill toggle-senha" title="Mostrar senha"></i>
+                </div>
                 <br><br>
                 <label for="data_nasc">Data de Nascimento:</label>
                 <input type="date" name="data_nasc" required>
@@ -139,10 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </a>
         </div>
     </footer>
-
     <script src="script.js"></script>
-
-
 </body>
 
 </html>

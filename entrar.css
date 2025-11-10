@@ -834,4 +834,24 @@ body {
         background-color: #f1f1f1;
 
     }
+
+    .cont_senha {
+        display: flex;
+        align-items: center;
+        position: relative;
+    }
+
+    .cont_senha input {
+        flex: 1;
+        padding-right: 35px;
+    }
+
+    .cont_senha i {
+        position: absolute;
+        right: 10px;
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(80, 80, 80);
+    }
+
 }
