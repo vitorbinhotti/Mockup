@@ -11,6 +11,8 @@ $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
+  echo $name;
+  echo $password;
 
   $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE name=?");
   $stmt->bind_param("s", $name);
@@ -19,7 +21,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $dados = $result->fetch_assoc();
   $stmt->close();
 
-  if ($dados && password_verify($password, $dados["password"])) {
+  if ($dados && $dados['password'] === $password) {
+    $_SESSION["user_id"] = $dados["id"];
+    $_SESSION["user_name"] = $dados["name"];
+    $_SESSION["user_cargo"] = $dados["cargo"];
+    $_SESSION["user_cpf"] = $dados["cpf"];
+    $_SESSION["user_data_nasc"] = $dados["data_nasc"];
+    $_SESSION["user_email"] = $dados["email"];
+    
+    header("Location: entrar.php");
+    exit();
+  } else {
+    $msg = "Nome de usuário ou senha incorretos.";
+  }
+  
+  /*if ($dados && password_verify($password, $dados["password"])) {
     $_SESSION["user_id"] = $dados["id"];
     $_SESSION["user_name"] = $dados["name"];
     $_SESSION["user_cargo"] = $dados["cargo"];
@@ -31,7 +47,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
   } else {
     $msg = "Usuário ou senha incorretos!";
-  }
+    echo $msg;
+  }*/
 }
 
 ?>
