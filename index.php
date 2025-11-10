@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
 
-  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=?");
+  $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE name=?");
   $stmt->bind_param("s", $name);
   $stmt->execute();
   $result = $stmt->get_result();
@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $msg = "Usuário ou senha incorretos!";
   }
 }
+
 ?>
 
 
