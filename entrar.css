@@ -774,7 +774,7 @@ body {
         border-collapse: collapse;
         width: 90%;
         margin-left: 7%;
-        margin-right: 7%; 
+        margin-right: 7%;
     }
 
     .table-usuarios td {
@@ -782,7 +782,7 @@ body {
         padding: 8px;
         text-align: center;
         font-size: 90%;
-        
+
     }
 
     .btn {
@@ -815,4 +815,24 @@ body {
         transition: background 0.2s;
     }
 
+    .scroll-usuarios {
+        max-height: 500px;
+        overflow-y: auto;
+        margin-top: 15px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    .scroll-usuarios::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .scroll-usuarios::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+    }
+
+    .scroll-usuarios::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+
+    }
 }

@@ -61,48 +61,49 @@
     <main>
         <h2 class="titulo-read">Funcionários</h2>
         <div class="table-usuarios">
-            <?php
-            include 'db.php';
+            <div class="scroll-usuarios">
+                <?php
+                include 'db.php';
 
-            $sql = "SELECT * FROM usuarios";
+                $sql = "SELECT * FROM usuarios";
 
-            $result = $mysqli->query($sql);
+                $result = $mysqli->query($sql);
 
-            if ($result->num_rows > 0) {
+                if ($result->num_rows > 0) {
 
-                echo "<div>";
-                echo "<table class='tabela-usuarios'>
-    </thead>
-    <tbody>";
+                    echo "<div>";
+                    echo "<table class='tabela-usuarios'>
+                    </thead>
+                    <tbody>";
 
-        echo "<tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>";
+                    echo "<tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Ações</th>
+                    </tr>";
 
-        while ($row = $result->fetch_assoc()) {
+                    while ($row = $result->fetch_assoc()) {
 
-        echo "<tr>
-            <td data-label='ID'>{$row['id']}</td>
-            <td data-label='Nome'>{$row['name']}</td>
-            <td class'btns-acao'>
-                <a href='update.php?id=" . urlencode($row['id']) . "' class='btn'>Editar</a>
-                <br><br>
-                <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn-excluir'>Excluir</a>
-            </td>
-        
-        </tr>";
+                        echo "<tr>
+                            <td data-label='ID'>{$row['id']}</td>
+                            <td data-label='Nome'>{$row['name']}</td>
+                            <td class'btns-acao'>
+                            <a href='update.php?id=" . urlencode($row['id']) . "' class='btn'>Editar</a>
+                            <br><br>
+                            <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn-excluir'>Excluir</a>
+                            </td>
+                        </tr>";
+                    }
+                    echo "</tbody></table>";
+                    echo "</div>";
+                } else {
+                    echo "Nenhum registro encontrado.";
                 }
-                echo "</tbody></table>";
-                echo "</div>";
-            } else {
-                echo "Nenhum registro encontrado.";
-            }
-            $mysqli->close();
-            ?>
+                $mysqli->close();
+                ?>
+            </div>
+            <a href='entrar.php' class='voltar-fim'>Voltar</a>
         </div>
-        <a href='entrar.php' class='voltar-fim'>Voltar</a>
     </main>
 
     <footer class="menu-rodape">
