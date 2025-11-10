@@ -1,7 +1,21 @@
 <?php
 include 'db.php';
-session_start();
 ?>
+
+<?php
+session_start();
+if (!isset($_SESSION["user_id"])) {
+    header("Location: index.php");
+    exit();
+}
+
+if (isset($_GET['logout'])) {
+    session_destroy();
+    header("Location: index.php");
+    exit();
+}
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,22 +57,21 @@ session_start();
     </div>
 
     <?php
-    if (isset($_GET['btn-sair'])) {
-        session_destroy();
-        header("Location: index.php");
-        exit;
-    }
-    echo '
+
+    echo '<a class="btn-editar" href="update2.php?id=' . $_SESSION["user_id"] . '">
+        <img src="images/editar2.png" alt="Editar Icon">
+        Editar Informações
+        </a>';
+    ?>
+
     <div class="btn-sair" id="btn-sair">
-        <a href="index.php">
+        <a href="?logout=1" class="sair-button">
             <img src="images/exit.png" alt="Sair Icon">
             Sair
         </a>
     </div>
-    ';
 
 
-    ?>
 
     <nav class="icon-menu-lateral">
         <div class="icone-fechar">
