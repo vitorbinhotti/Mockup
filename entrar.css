@@ -661,6 +661,22 @@ body {
         flex-direction: column;
         gap: 5%;
         padding-bottom: 50px;
+        max-height: 700px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar-thumb {
+        background-color: #2d36b0;
+        border-radius: 4px;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
     }
 
     .form-adicionar-funcionario label {
