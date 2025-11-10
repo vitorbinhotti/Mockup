@@ -12,8 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = $_POST['password'];
     $data_nasc = $_POST['data_nasc'];
     $cargo = $_POST['cargo'];
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuarios (name,email, cpf, password, data_nasc, cargo) VALUES ('$name','$email', '$cpf', '$password', '$data_nasc', '$cargo')";
+    $sql = "INSERT INTO usuarios (name,email, cpf, password, data_nasc, cargo) VALUES ('$name','$email', '$cpf', '$hashed_password', '$data_nasc', '$cargo')";
     if ($email_verify->verificar_email($_POST['email']) == false) {
         echo "<script>alert('Email inválido. Por favor, insira um email válido.') </script>";
         header("Refresh:0;");

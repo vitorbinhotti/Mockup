@@ -723,7 +723,7 @@ body {
         display: block;
         width: fit-content;
         margin: 40px auto 10px auto;
-        padding: 5px;
+        padding: 10px;
         background: #2d3eaf;
         color: #fff;
         border-radius: 8px;
@@ -771,18 +771,26 @@ body {
     }
 
     .table-usuarios {
-        border-collapse: collapse;
         width: 90%;
+<<<<<<< HEAD
         margin-left: 7%;
         margin-right: 7%;
+=======
+        margin: 0 auto;
+>>>>>>> cc3af812c747cc6c404eeac6f5c447e31c25b83a
     }
 
     .table-usuarios td {
         border: 1px solid #3e48cc;
-        padding: 8px;
+        padding: 12px;
         text-align: center;
+<<<<<<< HEAD
         font-size: 90%;
 
+=======
+        font-size: 18px;
+        
+>>>>>>> cc3af812c747cc6c404eeac6f5c447e31c25b83a
     }
 
     .btn {

@@ -9,10 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $user_cpf = $_POST['cpf'];
-    $user_data_nasc = $_POST['data-nasc'];
+    $user_data_nasc = $_POST['data_nasc'];
     $user_cargo = $_POST['cargo'];
 
-    $sql = "UPDATE usuarios SET name ='$name', email ='$email', cpf = '$cpf', data-nasc = '$user_data_nasc', cargo = '$cargo' WHERE id = $id";
+    $sql = "UPDATE usuarios 
+        SET name = '$name', 
+            email = '$email', 
+            cpf = '$user_cpf', 
+            data_nasc = '$user_data_nasc', 
+            cargo = '$user_cargo' 
+        WHERE id = $id";
 
     if ($mysqli->query($sql) === true) {
         echo "Registro editado com sucesso.";
@@ -38,11 +44,12 @@ $row = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="stylesheet" href="/src/reset.css">
+    <script src="script.js"></script>
     <title>Update</title>
 </head>
 
 <body>
-     <header class="topo">
+    <header class="topo">
         <a href="#" class="btn-abrir" onclick="abrirMenu()">&#9776;</a>
         <img class="logo"
             src="images/[ SA Parte I ] Smart Cities e a Transformação Digital no Transporte - Mateus Cesar, Vitor Binhotti, Felipe Pivatto e Eduardo Felipe (1080 x 1500 px).png"
@@ -91,7 +98,7 @@ $row = $result->fetch_assoc();
         <?php endif; ?>
     </nav>
     <main>
-          <form action="update.php?id=<?php echo $row['id']; ?>" method="POST" class="form-adicionar-funcionario">
+        <form action="update.php?id=<?php echo $row['id']; ?>" method="POST" class="form-adicionar-funcionario">
 
             <label for="name">Nome:</label>
             <input type="text" name="name" value="<?php echo htmlspecialchars($row['name']); ?>" required>
@@ -102,20 +109,20 @@ $row = $result->fetch_assoc();
             <label for="cpf">CPF:</label>
             <input type="text" name="cpf" value="<?php echo htmlspecialchars($row['cpf']); ?>" required>
             <br><br>
-            <label for="data-nasc">Data de nascimento:</label>
-            <input type="date" name="data-nasc" value="<?php echo htmlspecialchars($row['data-nasc']); ?>" required>
+            <label for="data_nasc">Data de nascimento:</label>
+            <input type="date" name="data_nasc" value="<?php echo htmlspecialchars($row['data_nasc']); ?>" required>
             <br><br>
             <label for="cargo">Cargo:</label>
             <select name="cargo" required>
                 <option value="">Selecione</option>
-                <option value="adm" <?php if($row['cargo']=='adm') echo 'selected'; ?>>Administrador</option>
-                <option value="funcionario" <?php if($row['cargo']=='funcionario') echo 'selected'; ?>>Funcionário</option>
+                <option value="adm" <?php if ($row['cargo'] == 'adm') echo 'selected'; ?>>Administrador</option>
+                <option value="funcionario" <?php if ($row['cargo'] == 'funcionario') echo 'selected'; ?>>Funcionário</option>
             </select>
             <br><br>
             <a href='read.php' class="botao-listar">Atualizar</a>
 
         </form>
-        
+
 
         <a href='read.php' class="voltar-update">Voltar</a>
     </main>
