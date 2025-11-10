@@ -1,21 +1,25 @@
 <?php
-
 include 'db.php';
 session_start();
+
+if (isset($_SESSION["user_id"])) {
+  header("Location: entrar.php");
+  exit();
+}
 
 $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
 
-  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=? AND password=?");
-  $stmt->bind_param("ss", $name, $password);
+  $stmt = $mysqli->prepare("SELECT id, name, cargo, cpf, data_nasc, email, password FROM usuarios WHERE name=?");
+  $stmt->bind_param("s", $name);
   $stmt->execute();
   $result = $stmt->get_result();
   $dados = $result->fetch_assoc();
   $stmt->close();
 
-  if ($dados) {
+  if ($dados && password_verify($password, $dados["password"])) {
     $_SESSION["user_id"] = $dados["id"];
     $_SESSION["user_name"] = $dados["name"];
     $_SESSION["user_cargo"] = $dados["cargo"];
@@ -24,12 +28,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $_SESSION["user_email"] = $dados["email"];
 
     header("Location: entrar.php");
-    exit;
+    exit();
   } else {
     $msg = "Usuário ou senha incorretos!";
   }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="pt-br">

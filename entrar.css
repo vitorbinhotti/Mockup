@@ -3,7 +3,7 @@ body {
 }
 
 @media screen and (max-width: 480px) {
-    More actions body {
+    body {
         margin: 0;
         font-family: 'Open Sans', sans-serif;
         background-color: #ffffff;
@@ -319,29 +319,20 @@ body {
         padding: 0;
     }
 
-    .btn-sair {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 2% 0;
-        margin: 5% auto;
-        width: 90%;
-        max-width: 50%;
-    }
-
     .btn-sair a {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 5%;
+        margin: 0 auto;
         background-color: #3e48cc;
         color: white;
-        padding: 6% 10%;
+        padding: 18px 15px;
         border-radius: 25px;
         font-weight: bold;
         text-decoration: none;
         transition: all 0.3s ease;
-        width: 100%;
+        width: 43%;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     }
 
@@ -351,10 +342,28 @@ body {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    .btn-sair img {
-        width: 20%;
-        height: 20%;
+    .btn-sair a img {
+        width: 20px;
+        height: 20px;
         filter: brightness(0) invert(1);
+    }
+
+    .btn-editar {
+        display: flex;
+        justify-content: center;
+        background-color: #3e48cc;
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        padding: 6% 10%;
+        border-radius: 25px;
+        align-items: center;
+        padding: 2% 0;
+        margin: 5% auto;
+        gap: 5%;
+        width: 90%;
+        height: 40px;
+        max-width: 50%;
     }
 
     .notificacoes {
@@ -748,9 +757,9 @@ body {
     .table-usuarios {
         border-collapse: collapse;
         width: 90%;
-        margin-left:10%;
+        margin-left: 10%;
         margin-right: auto;
-        
+
     }
 
     .table-usuarios td {
@@ -766,7 +775,7 @@ body {
         color: white;
         padding: 5px 10px;
         border-radius: 5px;
-        }
+    }
 
     .btn-excluir {
         background-color: #f44336;
