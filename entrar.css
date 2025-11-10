@@ -764,9 +764,8 @@ body {
     .table-usuarios {
         border-collapse: collapse;
         width: 90%;
-        margin-left: 10%;
-        margin-right: auto;
-
+        margin-left: 7%;
+        margin-right: 7%; 
     }
 
     .table-usuarios td {
@@ -774,6 +773,7 @@ body {
         padding: 8px;
         text-align: center;
         font-size: 90%;
+        
     }
 
     .btn {

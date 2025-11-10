@@ -88,6 +88,7 @@
             <td data-label='Nome'>{$row['name']}</td>
             <td class'btns-acao'>
                 <a href='update.php?id=" . urlencode($row['id']) . "' class='btn'>Editar</a>
+                <br><br>
                 <a href='delete.php?id=" . urlencode($row['id']) . "' class='btn-excluir'>Excluir</a>
             </td>
         
