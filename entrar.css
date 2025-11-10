@@ -652,6 +652,22 @@ body {
         flex-direction: column;
         gap: 5%;
         padding-bottom: 50px;
+        max-height: 700px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar-thumb {
+        background-color: #2d36b0;
+        border-radius: 4px;
+    }
+
+    .form-adicionar-funcionario::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
     }
 
     .form-adicionar-funcionario label {
@@ -748,9 +764,9 @@ body {
     .table-usuarios {
         border-collapse: collapse;
         width: 90%;
-        margin-left:10%;
+        margin-left: 10%;
         margin-right: auto;
-        
+
     }
 
     .table-usuarios td {
@@ -766,7 +782,7 @@ body {
         color: white;
         padding: 5px 10px;
         border-radius: 5px;
-        }
+    }
 
     .btn-excluir {
         background-color: #f44336;
