@@ -25,7 +25,6 @@ if (isset($_GET['logout'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="shortcut icon" type="image/ico" href="images/edit-info.png">
-    <script src="script.js"></script>
     <title>Informações Pessoais</title>
 </head>
 
@@ -48,6 +47,15 @@ if (isset($_GET['logout'])) {
         <p><strong>Nome:</strong> <?= $_SESSION["user_name"] ?></p>
         <p><strong>CPF:</strong> <?= $_SESSION["user_cpf"] ?></p>
         <p><strong>Data de Nascimento:</strong> <?= $_SESSION["user_data_nasc"] ?></p>
+
+        <?php
+
+        echo '<a class="btn-editar" href="update2.php?id=' . $_SESSION["user_id"] . '">
+        <img src="images/editar2.png" alt="Editar Icon">
+        Editar Informações
+        </a>';
+        ?>
+
     </div>
 
 
@@ -56,13 +64,7 @@ if (isset($_GET['logout'])) {
         <p><strong>Cargo:</strong> <?= $_SESSION["user_cargo"] ?></p>
     </div>
 
-    <?php
 
-    echo '<a class="btn-editar" href="update2.php?id=' . $_SESSION["user_id"] . '">
-        <img src="images/editar2.png" alt="Editar Icon">
-        Editar Informações
-        </a>';
-    ?>
 
     <div class="btn-sair" id="btn-sair">
         <a href="?logout=1" class="sair-button">
@@ -130,6 +132,7 @@ if (isset($_GET['logout'])) {
             </a>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
