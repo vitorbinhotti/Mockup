@@ -11,7 +11,7 @@ $msg = "";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $name = $_POST["nomeUsuario"] ?? "";
   $password = $_POST["senha"] ?? "";
-
+  
   $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE name=?");
   $stmt->bind_param("s", $name);
   $stmt->execute();
@@ -19,7 +19,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $dados = $result->fetch_assoc();
   $stmt->close();
 
-  if ($dados && password_verify($password, $dados["password"])) {
+  if ($dados && $dados['password'] === $password) {
+    $_SESSION["user_id"] = $dados["id"];
+    $_SESSION["user_name"] = $dados["name"];
+    $_SESSION["user_cargo"] = $dados["cargo"];
+    $_SESSION["user_cpf"] = $dados["cpf"];
+    $_SESSION["user_data_nasc"] = $dados["data_nasc"];
+    $_SESSION["user_email"] = $dados["email"];
+
+    header("Location: entrar.php");
+    exit();
+  } else {
+    $msg = "Nome de usuário ou senha incorretos.";
+  }
+
+  /*if ($dados && password_verify($password, $dados["password"])) {
     $_SESSION["user_id"] = $dados["id"];
     $_SESSION["user_name"] = $dados["name"];
     $_SESSION["user_cargo"] = $dados["cargo"];
@@ -31,7 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit();
   } else {
     $msg = "Usuário ou senha incorretos!";
-  }
+    echo $msg;
+  }*/
 }
 
 ?>
@@ -76,8 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       <input type="text" id="nomeUsuario" name="nomeUsuario" placeholder="Insira seu nome completo">
 
       <div class="cont_senha">
-        <input type="password" id="senha" name="senha" placeholder="Insira sua senha">
-        <i class="bi bi-eye-fill toggle-senha" id="btn-senha" onclick="mostrarSenha()"></i>
+        <input type="password" name="senha" placeholder="Insira sua senha">
+        <i class="bi bi-eye-fill toggle-senha" title="Mostrar senha"></i>
       </div>
       <?php if ($msg): ?><p class="msg"><?= $msg ?></p><?php endif; ?>
 

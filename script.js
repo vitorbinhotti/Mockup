@@ -32,24 +32,36 @@ function mostrarAbaRelatorio(abaId, botaoClicado) {
 
   const aba = document.getElementById(abaId);
   if (aba) aba.style.display = 'block';
-  
+
   if (botaoClicado) botaoClicado.classList.add('ativa');
 }
 
-function mostrarSenha() {
-  const inputPass = document.getElementById('senha');
-  const btnShowPass = document.getElementById('btn-senha');
 
-  if (inputPass && btnShowPass) {
-    if (inputPass.type === 'password') {
-      inputPass.setAttribute('type', 'text');
-      btnShowPass.classList.replace('bi-eye-fill', 'bi-eye-slash');
+document.querySelectorAll('.toggle-senha').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const container = btn.closest('div');
+    if (!container) return;
+
+    const input = container.querySelector('input[type="password"], input[type="text"]');
+    if (!input) return;
+
+    if (input.type === 'password') {
+      input.type = 'text';
+      if (btn.classList.contains('bi-eye-fill')) btn.classList.replace('bi-eye-fill', 'bi-eye-slash-fill');
+      else if (btn.classList.contains('bi-eye')) btn.classList.replace('bi-eye', 'bi-eye-slash');
+      else btn.classList.add('bi-eye-slash-fill');
     } else {
-      inputPass.setAttribute('type', 'password');
-      btnShowPass.classList.replace('bi-eye-slash', 'bi-eye-fill');
+      input.type = 'password';
+      if (btn.classList.contains('bi-eye-slash-fill')) btn.classList.replace('bi-eye-slash-fill', 'bi-eye-fill');
+      else if (btn.classList.contains('bi-eye-slash')) btn.classList.replace('bi-eye-slash', 'bi-eye');
+      else {
+        btn.classList.remove('bi-eye-slash-fill', 'bi-eye-slash');
+        btn.classList.add('bi-eye-fill');
+      }
     }
-  }
-}
+  });
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
   const nomeArmazenado = localStorage.getItem('nomeUsuario');
@@ -175,4 +187,5 @@ document.addEventListener('DOMContentLoaded', function () {
     dateInput.addEventListener('change', atualizarHorarios);
     atualizarHorarios();
   }
+
 });
