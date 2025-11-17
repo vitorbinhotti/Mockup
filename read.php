@@ -110,7 +110,7 @@
         <div class="item-menu casa-icon">
             <a href="entrar.php">
                 <img src="images/casa-home.png" alt="Home">
-                <p>Home</p>
+                <p>Principal</p>
             </a>
         </div>
         <div class="item-menu">
