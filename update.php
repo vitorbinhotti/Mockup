@@ -131,7 +131,7 @@ $row = $result->fetch_assoc();
         <div class="item-menu casa-icon">
             <a href="entrar.php">
                 <img src="images/casa-home.png" alt="Home">
-                <p>Principal</p>
+                <p>Home</p>
             </a>
         </div>
         <div class="item-menu">

@@ -89,8 +89,8 @@ $row = $result->fetch_assoc();
             <label for="name">Nome:</label>
             <input type="text" name="name" value="<?php echo htmlspecialchars($row['name']); ?>" required>
             <br><br>
-            <label for="data_nasc">Data Nascimento:</label>
-            <input type="date" name="data_nasc" value="<?php echo htmlspecialchars($row['data_nasc']); ?>" required>
+            <label for="data)">Data Nascimento:</label>
+            <input type="date" name="email" value="<?php echo htmlspecialchars($row['email']); ?>" required>
             <br><br>
             <div class="botao-adicionar">
                 <input type="submit" value="Salvar Alterações">
@@ -106,7 +106,7 @@ $row = $result->fetch_assoc();
         <div class="item-menu casa-icon">
             <a href="entrar.php">
                 <img src="images/casa-home.png" alt="Home">
-                <p>Principal</p>
+                <p>Home</p>
             </a>
         </div>
         <div class="item-menu">
