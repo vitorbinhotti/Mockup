@@ -7,12 +7,12 @@ $id = $_GET['id'];
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
-    $email = $_POST['email'];
-    $sql = "UPDATE usuarios SET name ='$name', email ='$email' WHERE id = $id";
+    $data_nasc = $_POST['data_nasc'];
+    $sql = "UPDATE usuarios SET name ='$name', data_nasc ='$data_nasc' WHERE id = $id";
     if ($mysqli->query($sql) === true) {
         if ($_SESSION["user_id"] == $id) {
             $_SESSION["user_name"] = $name;
-            $_SESSION["user_email"] = $email;
+            $_SESSION["user_data_nasc"] = $data_nasc;
         }
         $mysqli->close();
         header("Location: informacoes.php");
@@ -89,8 +89,8 @@ $row = $result->fetch_assoc();
             <label for="name">Nome:</label>
             <input type="text" name="name" value="<?php echo htmlspecialchars($row['name']); ?>" required>
             <br><br>
-            <label for="email">Email:</label>
-            <input type="email" name="email" value="<?php echo htmlspecialchars($row['email']); ?>" required>
+            <label for="data_nasc">Data Nascimento:</label>
+            <input type="date" name="data_nasc" value="<?php echo htmlspecialchars($row['data_nasc']); ?>" required>
             <br><br>
             <div class="botao-adicionar">
                 <input type="submit" value="Salvar Alterações">
