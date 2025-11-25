@@ -57,10 +57,10 @@ session_start();
         </a>
 
         <?php if (isset($_SESSION["user_cargo"]) && $_SESSION["user_cargo"] === 'adm'): ?>
-                <a href="adicionar-funcionario.php">
-                    <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
-                    Adicionar Funcionário
-                </a>
+            <a href="adicionar-funcionario.php">
+                <img src="../Mockup/images/add-friend-menor.png" alt="Adicionar Funcionário">
+                Adicionar Funcionário
+            </a>
         <?php endif; ?>
     </nav>
 
@@ -100,7 +100,6 @@ session_start();
                     <h3>Relatório e Análise</h3>
                 </a>
             </div>
-
             <div class="botao">
                 <a href="informacoes.php">
                     <img src="images/informacoes icon.png" alt="Informações Pessoais">
@@ -118,21 +117,23 @@ session_start();
             <?php endif; ?>
 
         </div>
-        <footer class="menu-rodape">
-            <div class="item-menu casa-icon">
-                <a href="entrar.php">
-                    <img src="images/casa-home.png" alt="Home">
-                    <p>Home</p>
-                </a>
-            </div>
-            <div class="item-menu">
-                <a href="informacoes.php">
-                    <img src="images/usuario-home.png" alt="Perfil">
-                    <p>Perfil</p>
-                </a>
-            </div>
-        </footer>
     </div>
+    <footer class="menu-rodape">
+        <div class="item-menu casa-icon">
+            <a href="entrar.php">
+                <img src="images/casa-home.png" alt="Home">
+                <p>Home</p>
+            </a>
+        </div>
+        <div class="item-menu">
+            <a href="informacoes.php">
+                <img src="images/usuario-home.png" alt="Perfil">
+                <p>Perfil</p>
+            </a>
+
+    </footer>
+    </div>
+
 </body>
 
 </html>

@@ -29,6 +29,7 @@ session_start();
     <div class="tab-relatorio">
         <button onclick="mostrarAbaRelatorio('problemas', this)" class="aba ativa"> Problemas</button>
         <button onclick="mostrarAbaRelatorio('gastos', this)" class="aba">Gastos</button>
+        <button onclick="mostrarAbaRelatorio('hive', this)" class="aba">HiveMQ</button>
     </div>
 
     <div id="problemas" class="conteudo-aba-relatorio">
@@ -39,6 +40,27 @@ session_start();
     <div id="gastos" class="conteudo-aba-relatorio" style="display: none;">
         <h2 class="txt-relatorio2">Distribuição de Gastos</h2>
         <img class="grafico" src="images/grafico.png" alt="">
+    </div>
+
+    <div id="hive" class="conteudo-aba-relatorio" style="display: none;">
+        <h2 class="txt-relatorio2">Teste de Conexão MQTT</h2>
+        <div class="botao-hive">
+            <button id="btn">Enviar mensagem MQTT</button>
+
+            <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+            <script type="module" src="mqtt.js"></script>
+
+            <script type="module">
+                import {
+                    enviarMensagem
+                } from "./mqtt.js";
+
+                document.getElementById("btn").addEventListener("click", () => {
+                    enviarMensagem();
+                });
+            </script>
+        </div>
     </div>
 
 
