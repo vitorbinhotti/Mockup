@@ -852,5 +852,165 @@ body {
         font-size: 20px;
         color: rgb(80, 80, 80);
     }
-    
+
+    .mqtt-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .mqtt-status-box {
+        background: #ffffff;
+        padding: 20px 25px;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e2e8f0;
+    }
+
+    .mqtt-status-box h3 {
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-size: 17px;
+        color: #1e293b;
+        font-weight: 600;
+    }
+
+    .status {
+        margin: 0 0 10px;
+        padding: 8px 12px;
+        border-radius: 10px;
+        font-size: 15px;
+    }
+
+    .aguardando {
+        background: #f1f5f9;
+        color: #475569;
+    }
+
+    .status-conectado {
+        color: #00c851 !important;
+        font-weight: bold;
+    }
+
+    .status-inscrito {
+        color: #00c851 !important;
+        font-weight: bold;
+    }
+
+    .ok {
+        background: #d1fae5 !important;
+        color: #065f46 !important;
+        font-weight: bold;
+        border: 1px solid #34d399;
+    }
+
+    .erro {
+        background: #fee2e2;
+        color: #991b1b;
+    }
+
+    .enviado {
+        background: #dbeafe;
+        color: #1e40af;
+        font-weight: bold;
+        border: 1px solid #3b82f6;
+    }
+
+    .recebido {
+        background: #fef9c3;
+        color: #854d0e;
+        font-weight: bold;
+        border: 1px solid #facc15;
+    }
+
+    .btn-enviar, .botao-hive button {
+        background-color: #2563eb;
+        padding: 12px 25px;
+        border: 2px solid #e2e8f0;
+        border-radius: 12px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: .2s;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+        margin-top: 10px;
+        width: 100%;
+        max-width: 220px;
+        text-align: center;
+        display: block;
+    }
+
+    .btn-enviar:hover, .botao-hive button:hover {
+        background-color: #1d4ed8;
+    }
+
+    .btn-enviar:disabled, .botao-hive button:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+    }
+
+    .btn-enviar:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+    }
+
+    .carregando {
+        position: relative;
+    }
+
+    .carregando::after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 3px solid transparent;
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @keyframes spin {
+        to {
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
+
+    .btn-enviar:hover {
+        background-color: #1d4ed8;
+    }
+
+    .btn-enviar:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+    }
+
+    .carregando {
+        position: relative;
+    }
+
+    .carregando::after {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border: 3px solid transparent;
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        position: absolute;
+        right: -25px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    @keyframes spin {
+        to {
+            transform: translateY(-50%) rotate(360deg);
+        }
+    }
 }

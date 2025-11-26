@@ -11,7 +11,6 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="entrar.css">
     <link rel="shortcut icon" type="image/ico" href="images/report.png">
-    <script src="script.js"></script>
     <title>Relatórios e Análise</title>
 </head>
 
@@ -43,26 +42,42 @@ session_start();
     </div>
 
     <div id="hive" class="conteudo-aba-relatorio" style="display: none;">
+
         <h2 class="txt-relatorio2">Teste de Conexão MQTT</h2>
-        <div class="botao-hive">
-            <button id="btn">Enviar mensagem MQTT</button>
 
-            <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+        <div class="mqtt-container">
 
-            <script type="module" src="mqtt.js"></script>
+            <div class="mqtt-status-box">
 
-            <script type="module">
-                import {
-                    enviarMensagem
-                } from "./mqtt.js";
+                <h3>Status da Conexão</h3>
+                <p id="statusConexao" class="status aguardando">Conectando...</p>
 
-                document.getElementById("btn").addEventListener("click", () => {
-                    enviarMensagem();
-                });
-            </script>
+                <h3>Status da Inscrição</h3>
+                <p id="statusInscricao" class="status aguardando">Aguardando...</p>
+
+                <h3>📩 Última Mensagem Recebida</h3>
+                <p id="mensagemRecebida" class="status aguardando">Nenhuma mensagem ainda...</p>
+
+                <h3>📤 Última Mensagem Enviada</h3>
+                <p id="mensagemEnviada" class="status aguardando">Nenhum envio ainda...</p>
+
+            </div>
+
+            <button id="btn" class="btn-enviar">Enviar mensagem MQTT</button>
+
         </div>
-    </div>
 
+        <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+        <script type="module" src="mqtt.js"></script>
+
+        <script type="module">
+            import {
+                enviarMensagem
+            } from "./mqtt.js";
+            document.getElementById("btn").addEventListener("click", enviarMensagem);
+        </script>
+
+    </div>
 
     <nav class="icon-menu-lateral">
         <div class="icone-fechar">
@@ -120,6 +135,7 @@ session_start();
             </a>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 
 </html>
